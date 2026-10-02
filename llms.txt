@@ -1,0 +1,54 @@
+# Kaiwen Design System (LLM Specification)
+
+> Production-grade, modular design system and component library for Kaiwen Web and Mobile.
+
+## Packages
+- `@kaiwen/tokens`: Semantic tokens for colors, spacing, radius, typography, motion, z-index.
+- `@kaiwen/ui-web`: Web component library (Button, Input, Card, Skeleton, Stack, Box, Text, etc.).
+- `@kaiwen/ui-native`: React Native component library with native keyboard/gesture behaviors.
+- `@kaiwen/icons`: Tree-shakable SVG icon set.
+- `@kaiwen/brand`: Kaiwen Logo, Wordmark, and Mark glyphs.
+- `@kaiwen/utilities`: Shared classname merger (cn), SSR safety, a11y helpers.
+
+## Design Character
+- Modern, minimal, quiet, high contrast, clean typography.
+- Primary palette: Black, White, Neutral Grays, subtle accent status colors.
+- Micro-animations: smooth, subtle, fast (120ms-180ms), with reduced motion support.
+
+## Web Example
+```tsx
+import { ThemeProvider, Button, Card, Stack, Input, Text } from "@kaiwen/ui-web";
+
+export function LoginView() {
+  return (
+    <ThemeProvider defaultTheme="dark">
+      <Card padding="lg">
+        <Card.Header title="Sign in" subtitle="Enter your credentials" />
+        <Stack gap="md">
+          <Input label="Email" type="email" placeholder="name@domain.com" />
+          <Button variant="primary" fullWidth>Continue</Button>
+        </Stack>
+      </Card>
+    </ThemeProvider>
+  );
+}
+```
+
+## Native Example
+```tsx
+import { KaiwenThemeProvider, Button, Card, Stack, Input, Text } from "@kaiwen/ui-native";
+
+export function NativeLoginView() {
+  return (
+    <KaiwenThemeProvider initialTheme="dark">
+      <Card>
+        <Card.Header title="Sign in" subtitle="Mobile Authentication" />
+        <Stack gap="md">
+          <Input label="Email" keyboardType="email-address" autoCapitalize="none" />
+          <Button variant="primary" fullWidth>Continue</Button>
+        </Stack>
+      </Card>
+    </KaiwenThemeProvider>
+  );
+}
+```

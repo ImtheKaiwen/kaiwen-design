@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--kaiwen-font-sans, "Inter", sans-serif);
+  background-color: var(--kaiwen-color-bg-primary, #000000);
+  color: var(--kaiwen-color-text-primary, #ffffff);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}

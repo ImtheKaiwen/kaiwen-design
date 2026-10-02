@@ -1,0 +1,64 @@
+/**
+ * Kaiwen Design System - Web Styles & Animations
+ */
+
+@keyframes kaiwen-skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes kaiwen-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.kaiwen-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--kaiwen-color-surface-secondary, #18181b) 25%,
+    var(--kaiwen-color-surface-tertiary, #202023) 50%,
+    var(--kaiwen-color-surface-secondary, #18181b) 75%
+  );
+  background-size: 200% 100%;
+  animation: kaiwen-skeleton-shimmer var(--kaiwen-duration-skeleton, 1500ms)
+    infinite linear;
+}
+
+[data-theme="light"] .kaiwen-skeleton,
+.light .kaiwen-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--kaiwen-color-surface-secondary, #f4f4f5) 25%,
+    var(--kaiwen-color-surface-tertiary, #e4e4e7) 50%,
+    var(--kaiwen-color-surface-secondary, #f4f4f5) 75%
+  );
+  background-size: 200% 100%;
+}
+
+.kaiwen-spinner {
+  animation: kaiwen-spin 800ms linear infinite;
+}
+
+/* Reduced Motion Support (Plan.md Section 11) */
+@media (prefers-reduced-motion: reduce) {
+  .kaiwen-skeleton {
+    animation: none !important;
+    opacity: 0.7;
+  }
+  .kaiwen-spinner {
+    animation-duration: 2000ms !important;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
