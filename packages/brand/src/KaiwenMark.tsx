@@ -1,4 +1,5 @@
 import * as React from "react";
+import { KAIWEN_MARK_PATH } from "./kaiwen-mark-path.js";
 
 export interface KaiwenMarkProps extends React.SVGProps<SVGSVGElement> {
   size?: number | string;
@@ -6,7 +7,8 @@ export interface KaiwenMarkProps extends React.SVGProps<SVGSVGElement> {
 }
 
 /**
- * Kaiwen Brand Mark (Geometric Icon Glyph)
+ * Kaiwen Official Brand Mark (Geometric K Glyph)
+ * Direct vector representation from official brand assets.
  */
 export const KaiwenMark: React.FC<KaiwenMarkProps> = ({
   size = 24,
@@ -18,34 +20,13 @@ export const KaiwenMark: React.FC<KaiwenMarkProps> = ({
     <svg
       width={size}
       height={size}
-      viewBox="0 0 32 32"
-      fill="none"
+      viewBox="0 0 100 100"
+      fill={color}
       xmlns="http://www.w3.org/2000/svg"
       style={{ display: "inline-block", verticalAlign: "middle", ...style }}
       {...props}
     >
-      {/* Outer Hexagon / Shield Frame */}
-      <path
-        d="M16 2.5L28 9.5V22.5L16 29.5L4 22.5V9.5L16 2.5Z"
-        stroke={color}
-        strokeWidth="2"
-        strokeLinejoin="round"
-      />
-      {/* Stylized K Core */}
-      <path
-        d="M11 9V23"
-        stroke={color}
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M21 10L12 16L21 22"
-        stroke={color}
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="16" cy="16" r="1.5" fill={color} />
+      <path d={KAIWEN_MARK_PATH} fillRule="evenodd" clipRule="evenodd" />
     </svg>
   );
 };

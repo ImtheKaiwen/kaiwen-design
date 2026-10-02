@@ -1,5 +1,5 @@
 import * as React from "react";
-import { KaiwenLogo } from "@kaiwen/brand";
+import { KaiwenLogo, KaiwenMark } from "@kaiwen/brand";
 import {
   SearchIcon,
   MoonIcon,
@@ -24,9 +24,14 @@ import {
   PasswordInput,
   NumberInput,
   OTPInput,
+  PromptInput,
   Badge,
   Skeleton,
   Divider,
+  Dialog,
+  Tabs,
+  Tooltip,
+  Alert,
 } from "@kaiwen/ui-web";
 
 export function App() {
@@ -34,22 +39,43 @@ export function App() {
   const [btnLoading, setBtnLoading] = React.useState(false);
   const [cardLoading, setCardLoading] = React.useState(false);
   const [otpValue, setOtpValue] = React.useState("");
+  const [dialogOpen, setDialogOpen] = React.useState(false);
+  const [promptMessage, setPromptMessage] = React.useState("");
+  const [submittedMessages, setSubmittedMessages] = React.useState<string[]>([
+    "Welcome to Kaiwen Design System. What would you like to build today?",
+  ]);
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
 
+  const handlePromptSubmit = (msg: string) => {
+    if (!msg.trim()) return;
+    setSubmittedMessages((prev) => [...prev, msg]);
+    setPromptMessage("");
+  };
+
   return (
-    <div style={{ minHeight: "100vh", paddingBottom: "80px" }}>
-      {/* Top Navbar */}
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "var(--kaiwen-color-bg-primary, #0D0D0D)",
+        color: "var(--kaiwen-color-text-primary, #ECECEC)",
+        paddingBottom: "100px",
+        transition: "background-color 200ms ease, color 200ms ease",
+      }}
+    >
+      {/* OpenAI-Style Clean Minimal Top Header */}
       <header
         style={{
-          borderBottom: "1px solid var(--kaiwen-color-border-subtle, #18181B)",
-          backgroundColor: "var(--kaiwen-color-surface-primary, #111113)",
+          borderBottom:
+            "1px solid var(--kaiwen-color-border-subtle, rgba(255, 255, 255, 0.06))",
+          backgroundColor: "var(--kaiwen-color-surface-primary, #171717)",
           position: "sticky",
           top: 0,
           zIndex: 100,
-          backdropFilter: "blur(12px)",
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
         }}
       >
         <Container size="xl" py="sm">
@@ -57,40 +83,51 @@ export function App() {
             <HStack gap="sm">
               <KaiwenLogo
                 size="md"
-                color="var(--kaiwen-color-text-primary, #FFFFFF)"
+                color="var(--kaiwen-color-text-primary, #ECECEC)"
               />
               <Badge variant="outline" size="sm">
-                v0.1.0-alpha
+                OpenAI Edition
               </Badge>
             </HStack>
 
             <HStack gap="sm">
-              <IconButton
+              <Tooltip content="Toggle Dark / Light">
+                <IconButton
+                  size="sm"
+                  variant="ghost"
+                  aria-label="Toggle theme mode"
+                  onClick={toggleTheme}
+                  icon={
+                    resolvedTheme === "dark" ? (
+                      <SunIcon size={16} />
+                    ) : (
+                      <MoonIcon size={16} />
+                    )
+                  }
+                />
+              </Tooltip>
+
+              <Button
                 size="sm"
-                variant="ghost"
-                aria-label="Toggle theme mode"
-                onClick={toggleTheme}
-                icon={
-                  resolvedTheme === "dark" ? (
-                    <SunIcon size={16} />
-                  ) : (
-                    <MoonIcon size={16} />
-                  )
-                }
-              />
+                variant="secondary"
+                onClick={() => setDialogOpen(true)}
+              >
+                Open Dialog
+              </Button>
+
               <Button
                 size="sm"
                 variant="primary"
                 endIcon={<ArrowRightIcon size={14} />}
                 onClick={() =>
                   window.open(
-                    "https://github.com",
+                    "https://github.com/ImtheKaiwen/kaiwen-design",
                     "_blank",
                     "noopener,noreferrer",
                   )
                 }
               >
-                Docs
+                GitHub
               </Button>
             </HStack>
           </HStack>
@@ -100,16 +137,51 @@ export function App() {
       {/* Main Content Area */}
       <Container size="lg" pt="xl">
         <Stack gap="2xl">
-          {/* Hero Header */}
-          <VStack gap="xs" align="flex-start">
-            <Text variant="display">Kaiwen Design System</Text>
-            <Text variant="title" color="secondary">
-              Production-grade, modular design system and component architecture
-              for Web and Mobile.
-            </Text>
-            <HStack gap="sm" style={{ marginTop: "12px" }}>
+          {/* Hero Section with Official Brand Mark */}
+          <VStack
+            gap="md"
+            align="center"
+            style={{ textAlign: "center", paddingTop: "24px" }}
+          >
+            <div
+              style={{
+                width: "64px",
+                height: "64px",
+                borderRadius: "18px",
+                backgroundColor:
+                  "var(--kaiwen-color-surface-secondary, #212121)",
+                border:
+                  "1px solid var(--kaiwen-color-border-default, rgba(255, 255, 255, 0.1))",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.2)",
+              }}
+            >
+              <KaiwenMark
+                size={36}
+                color="var(--kaiwen-color-text-primary, #ECECEC)"
+              />
+            </div>
+
+            <VStack gap="xs" align="center">
+              <Text variant="display" style={{ letterSpacing: "-0.03em" }}>
+                Kaiwen Design System
+              </Text>
+              <Text
+                variant="title"
+                color="secondary"
+                style={{ maxWidth: "560px" }}
+              >
+                Production-grade, modular design system designed with modern
+                OpenAI-level aesthetic, quiet confidence, and strict
+                accessibility.
+              </Text>
+            </VStack>
+
+            <HStack gap="sm">
               <Badge variant="success" dot>
-                Tokens Ready
+                Official Mark
               </Badge>
               <Badge variant="info" dot>
                 Strict TypeScript
@@ -119,6 +191,168 @@ export function App() {
             </HStack>
           </VStack>
 
+          {/* Interactive OpenAI-Style Prompt Composer */}
+          <VStack gap="md" align="stretch">
+            <VStack gap="2xs" align="flex-start">
+              <Text variant="h2">Prompt Composer</Text>
+              <Text variant="bodySmall" color="secondary">
+                OpenAI-style multi-line auto-expanding prompt input with
+                keyboard dispatch and bottom actions.
+              </Text>
+            </VStack>
+
+            <Card padding="md">
+              <Stack gap="md">
+                {/* Chat Feed */}
+                <VStack gap="sm" align="stretch">
+                  {submittedMessages.map((msg, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        padding: "12px 16px",
+                        borderRadius: "14px",
+                        backgroundColor:
+                          idx === 0
+                            ? "var(--kaiwen-color-surface-primary, #171717)"
+                            : "var(--kaiwen-color-surface-secondary, #212121)",
+                        border:
+                          "1px solid var(--kaiwen-color-border-subtle, rgba(255, 255, 255, 0.06))",
+                        fontSize: "14px",
+                        lineHeight: "1.5",
+                      }}
+                    >
+                      <HStack gap="xs" style={{ marginBottom: "4px" }}>
+                        <KaiwenMark
+                          size={14}
+                          color="var(--kaiwen-color-status-success, #10A37F)"
+                        />
+                        <Text variant="caption" color="muted">
+                          {idx === 0 ? "Kaiwen Assistant" : "User"}
+                        </Text>
+                      </HStack>
+                      <Text variant="body">{msg}</Text>
+                    </div>
+                  ))}
+                </VStack>
+
+                {/* Prompt Input */}
+                <PromptInput
+                  value={promptMessage}
+                  onChange={setPromptMessage}
+                  onSubmit={handlePromptSubmit}
+                  placeholder="Ask Kaiwen anything... (Enter to submit, Shift+Enter for newline)"
+                  startAction={
+                    <Tooltip content="Attach File">
+                      <IconButton
+                        size="sm"
+                        variant="ghost"
+                        aria-label="Attach"
+                        icon={<CopyIcon size={14} />}
+                      />
+                    </Tooltip>
+                  }
+                  endActions={
+                    <Badge variant="outline" size="sm">
+                      GPT-4o
+                    </Badge>
+                  }
+                />
+              </Stack>
+            </Card>
+          </VStack>
+
+          <Divider />
+
+          {/* Section: Status Alerts */}
+          <VStack gap="md" align="stretch">
+            <VStack gap="2xs" align="flex-start">
+              <Text variant="h2">Feedback & Status Alerts</Text>
+              <Text variant="bodySmall" color="secondary">
+                High-contrast semantic feedback banners with dismiss actions.
+              </Text>
+            </VStack>
+
+            <Stack gap="sm">
+              <Alert
+                variant="success"
+                title="Synchronized Successfully"
+                onClose={() => {}}
+              >
+                All design tokens and brand assets have been verified and
+                compiled to ESM + CJS.
+              </Alert>
+              <Alert
+                variant="info"
+                title="New Release Available"
+                onClose={() => {}}
+              >
+                Kaiwen Design System v0.1.0 is published with strict TypeScript
+                support.
+              </Alert>
+            </Stack>
+          </VStack>
+
+          <Divider />
+
+          {/* Section: Tabs & Settings */}
+          <VStack gap="md" align="stretch">
+            <VStack gap="2xs" align="flex-start">
+              <Text variant="h2">Navigation & Tabs</Text>
+              <Text variant="bodySmall" color="secondary">
+                Pill and line variants matching OpenAI application settings.
+              </Text>
+            </VStack>
+
+            <Card padding="md">
+              <Tabs defaultValue="account" variant="pill">
+                <Tabs.List>
+                  <Tabs.Trigger value="account">Account</Tabs.Trigger>
+                  <Tabs.Trigger value="security">Security</Tabs.Trigger>
+                  <Tabs.Trigger value="appearance">Appearance</Tabs.Trigger>
+                </Tabs.List>
+
+                <Tabs.Content value="account">
+                  <VStack gap="sm" align="flex-start">
+                    <Text variant="title">Account Settings</Text>
+                    <Text variant="body" color="secondary">
+                      Manage your profile information and verified email
+                      addresses.
+                    </Text>
+                    <Input
+                      label="Display Name"
+                      defaultValue="Kaiwen Developer"
+                    />
+                  </VStack>
+                </Tabs.Content>
+
+                <Tabs.Content value="security">
+                  <VStack gap="sm" align="flex-start">
+                    <Text variant="title">Security & Credentials</Text>
+                    <Text variant="body" color="secondary">
+                      Manage multi-factor authentication and active sessions.
+                    </Text>
+                    <PasswordInput
+                      label="Current Password"
+                      defaultValue="supersecret"
+                    />
+                  </VStack>
+                </Tabs.Content>
+
+                <Tabs.Content value="appearance">
+                  <VStack gap="sm" align="flex-start">
+                    <Text variant="title">Appearance & Theme</Text>
+                    <Text variant="body" color="secondary">
+                      Select theme preference: currently set to {resolvedTheme}.
+                    </Text>
+                    <Button variant="secondary" size="sm" onClick={toggleTheme}>
+                      Switch to {resolvedTheme === "dark" ? "Light" : "Dark"}
+                    </Button>
+                  </VStack>
+                </Tabs.Content>
+              </Tabs>
+            </Card>
+          </VStack>
+
           <Divider />
 
           {/* Section: Typography */}
@@ -126,8 +360,8 @@ export function App() {
             <VStack gap="2xs" align="flex-start">
               <Text variant="h2">Typography Scale</Text>
               <Text variant="bodySmall" color="secondary">
-                High-contrast, clean typographic hierarchy powered by semantic
-                design tokens.
+                High-contrast, clean typographic hierarchy with precision
+                tracking.
               </Text>
             </VStack>
 
@@ -149,13 +383,6 @@ export function App() {
                 <Divider />
                 <HStack justify="space-between">
                   <Text variant="mono" color="muted">
-                    h2
-                  </Text>
-                  <Text variant="h2">Header 2 Specimen</Text>
-                </HStack>
-                <Divider />
-                <HStack justify="space-between">
-                  <Text variant="mono" color="muted">
                     title
                   </Text>
                   <Text variant="title">Component Title Specimen</Text>
@@ -167,15 +394,6 @@ export function App() {
                   </Text>
                   <Text variant="body">
                     Body text for interface copy, paragraphs, and descriptions.
-                  </Text>
-                </HStack>
-                <Divider />
-                <HStack justify="space-between">
-                  <Text variant="mono" color="muted">
-                    caption
-                  </Text>
-                  <Text variant="caption" color="secondary">
-                    Subtle metadata and secondary descriptors
                   </Text>
                 </HStack>
                 <Divider />
@@ -425,9 +643,16 @@ export function App() {
           {/* Footer */}
           <Divider />
           <HStack justify="space-between" py="md">
-            <Text variant="caption" color="muted">
-              Kaiwen Design System © 2026. Production-Grade.
-            </Text>
+            <HStack gap="xs">
+              <KaiwenMark
+                size={18}
+                color="var(--kaiwen-color-text-muted, #737373)"
+              />
+              <Text variant="caption" color="muted">
+                Kaiwen Design System © 2026. Production-Grade.
+              </Text>
+            </HStack>
+
             <HStack gap="md">
               <Text variant="caption" color="muted">
                 React Web
@@ -442,6 +667,33 @@ export function App() {
           </HStack>
         </Stack>
       </Container>
+
+      {/* Accessible Dialog / Modal Component */}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <Dialog.Content>
+          <Dialog.Header
+            title="Kaiwen Preferences"
+            subtitle="Configure your OpenAI-inspired workspace"
+          />
+          <Dialog.Body>
+            <Stack gap="md">
+              <Text variant="body" color="secondary">
+                You can toggle themes, manage prompt defaults, or adjust
+                accessibility preferences like reduced motion.
+              </Text>
+              <Input label="Workspace Name" defaultValue="Production Agent" />
+            </Stack>
+          </Dialog.Body>
+          <Dialog.Footer>
+            <Button variant="ghost" onClick={() => setDialogOpen(false)}>
+              Cancel
+            </Button>
+            <Button variant="primary" onClick={() => setDialogOpen(false)}>
+              Save Preferences
+            </Button>
+          </Dialog.Footer>
+        </Dialog.Content>
+      </Dialog>
     </div>
   );
 }

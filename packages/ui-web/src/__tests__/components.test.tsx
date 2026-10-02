@@ -10,6 +10,10 @@ import {
   Text,
   Stack,
   HStack,
+  PromptInput,
+  Dialog,
+  Tabs,
+  Alert,
 } from "../index.js";
 
 describe("@kaiwen/ui-web Components", () => {
@@ -117,6 +121,66 @@ describe("@kaiwen/ui-web Components", () => {
         </Badge>,
       );
       expect(screen.getByText("Active")).toBeDefined();
+    });
+  });
+
+  describe("PromptInput", () => {
+    it("renders prompt composer and invokes onSubmit on click", () => {
+      const handleSubmit = vi.fn();
+      render(
+        <PromptInput defaultValue="Hello Kaiwen" onSubmit={handleSubmit} />,
+      );
+      const btn = screen.getByLabelText("Send prompt");
+      fireEvent.click(btn);
+      expect(handleSubmit).toHaveBeenCalledWith("Hello Kaiwen");
+    });
+  });
+
+  describe("Dialog", () => {
+    it("renders dialog when open=true", () => {
+      render(
+        <Dialog open={true} onOpenChange={() => {}}>
+          <Dialog.Content>
+            <Dialog.Header title="Test Dialog" />
+            <Dialog.Body>Dialog body message</Dialog.Body>
+          </Dialog.Content>
+        </Dialog>,
+      );
+      expect(screen.getByText("Test Dialog")).toBeDefined();
+      expect(screen.getByText("Dialog body message")).toBeDefined();
+    });
+  });
+
+  describe("Tabs", () => {
+    it("switches tabs on trigger click", () => {
+      render(
+        <Tabs defaultValue="tab1">
+          <Tabs.List>
+            <Tabs.Trigger value="tab1">Tab 1</Tabs.Trigger>
+            <Tabs.Trigger value="tab2">Tab 2</Tabs.Trigger>
+          </Tabs.List>
+          <Tabs.Content value="tab1">Content 1</Tabs.Content>
+          <Tabs.Content value="tab2">Content 2</Tabs.Content>
+        </Tabs>,
+      );
+      expect(screen.getByText("Content 1")).toBeDefined();
+      expect(screen.queryByText("Content 2")).toBeNull();
+
+      fireEvent.click(screen.getByText("Tab 2"));
+      expect(screen.getByText("Content 2")).toBeDefined();
+      expect(screen.queryByText("Content 1")).toBeNull();
+    });
+  });
+
+  describe("Alert", () => {
+    it("renders alert message and title", () => {
+      render(
+        <Alert variant="success" title="Success!">
+          Operation complete
+        </Alert>,
+      );
+      expect(screen.getByText("Success!")).toBeDefined();
+      expect(screen.getByText("Operation complete")).toBeDefined();
     });
   });
 
