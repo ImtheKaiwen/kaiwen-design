@@ -8,33 +8,40 @@ export interface SelectOption {
   disabled?: boolean;
 }
 
-export interface SelectProps extends Omit<
-  React.SelectHTMLAttributes<HTMLSelectElement>,
-  "size"
-> {
+export type SelectSize = "sm" | "md" | "lg";
+
+export interface SelectProps
+  extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "size"> {
   label?: string;
   error?: string | boolean;
   helperText?: string;
   options?: SelectOption[];
   placeholder?: string;
-  size?: "sm" | "md" | "lg";
+  size?: SelectSize;
+  fullWidth?: boolean;
 }
 
-const selectSizes = {
+const sizeConfig: Record<
+  SelectSize,
+  { height: string; fontSize: string; paddingX: string; radius: string }
+> = {
   sm: {
     height: "32px",
-    fontSize: "var(--kw-font-size-xs)",
-    px: "var(--kw-space-2-5)",
+    fontSize: "13px",
+    paddingX: "10px",
+    radius: "var(--kaiwen-radius-sm, 6px)",
   },
   md: {
     height: "40px",
-    fontSize: "var(--kw-font-size-sm)",
-    px: "var(--kw-space-3)",
+    fontSize: "14px",
+    paddingX: "12px",
+    radius: "var(--kaiwen-radius-md, 8px)",
   },
   lg: {
     height: "48px",
-    fontSize: "var(--kw-font-size-base)",
-    px: "var(--kw-space-4)",
+    fontSize: "16px",
+    paddingX: "16px",
+    radius: "var(--kaiwen-radius-lg, 10px)",
   },
 };
 
@@ -48,6 +55,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       options,
       placeholder,
       size = "md",
+      fullWidth = true,
       disabled,
       required,
       id,
@@ -64,41 +72,42 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 
     const hasError = Boolean(error);
     const errorMessage = typeof error === "string" ? error : undefined;
-    const dim = selectSizes[size];
+    const cfg = sizeConfig[size];
 
     return (
       <div
         className={cn(
-          "kw-select-container",
-          hasError && "kw-has-error",
-          disabled && "kw-is-disabled",
+          "kaiwen-select-container",
+          hasError && "kaiwen-has-error",
+          disabled && "kaiwen-is-disabled",
           className,
         )}
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "var(--kw-space-1)",
-          width: "100%",
+          gap: "6px",
+          width: fullWidth ? "100%" : "auto",
         }}
       >
         {label && (
           <label
             htmlFor={selectId}
             style={{
-              fontSize: "var(--kw-font-size-sm)",
-              fontWeight: "var(--kw-font-weight-medium)",
+              fontSize: "13px",
+              fontWeight: 500,
               color: hasError
-                ? "var(--kw-color-error-text)"
-                : "var(--kw-color-text-secondary)",
+                ? "var(--kw-color-error-text, #EF4444)"
+                : "var(--kw-color-text-secondary, #B4B4B4)",
               display: "flex",
               alignItems: "center",
               gap: "4px",
+              fontFamily: "var(--kaiwen-font-sans, sans-serif)",
             }}
           >
             {label}
             {required && (
               <span
-                style={{ color: "var(--kw-color-error-text)" }}
+                style={{ color: "var(--kw-color-error-text, #EF4444)" }}
                 aria-hidden="true"
               >
                 *
@@ -110,7 +119,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         <div
           style={{
             position: "relative",
-            display: "flex",
+            display: "inline-flex",
             alignItems: "center",
             width: "100%",
           }}
@@ -126,42 +135,43 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             }
             style={{
               width: "100%",
-              height: dim.height,
-              paddingLeft: dim.px,
+              height: cfg.height,
+              paddingLeft: cfg.paddingX,
               paddingRight: "36px",
-              fontSize: dim.fontSize,
-              fontFamily: "inherit",
-              color: "var(--kw-color-text-primary)",
-              backgroundColor: "var(--kw-color-bg-subtle)",
+              fontSize: cfg.fontSize,
+              fontFamily: "var(--kaiwen-font-sans, sans-serif)",
+              color: "var(--kw-color-text-primary, #ECECEC)",
+              backgroundColor:
+                "var(--kw-color-bg-subtle, var(--kaiwen-color-surface-secondary, #212121))",
               border: `1px solid ${
                 hasError
-                  ? "var(--kw-color-error-border)"
-                  : "var(--kw-color-border-subtle)"
+                  ? "var(--kw-color-error-text, #EF4444)"
+                  : "var(--kw-color-border-default, rgba(255, 255, 255, 0.12))"
               }`,
-              borderRadius: "var(--kw-radius-md)",
+              borderRadius: cfg.radius,
               outline: "none",
               appearance: "none",
               WebkitAppearance: "none",
               MozAppearance: "none",
               cursor: disabled ? "not-allowed" : "pointer",
               transition:
-                "border-color var(--kw-motion-duration-fast) var(--kw-motion-ease-out), box-shadow var(--kw-motion-duration-fast) var(--kw-motion-ease-out)",
+                "border-color var(--kaiwen-duration-fast, 120ms) ease, box-shadow var(--kaiwen-duration-fast, 120ms) ease",
               boxSizing: "border-box",
               opacity: disabled ? 0.6 : 1,
               ...style,
             }}
             onFocus={(e) => {
               e.currentTarget.style.borderColor = hasError
-                ? "var(--kw-color-error-interactive)"
-                : "var(--kw-color-border-focus)";
+                ? "var(--kw-color-error-text, #EF4444)"
+                : "var(--kw-color-border-focus, #FFFFFF)";
               e.currentTarget.style.boxShadow = hasError
-                ? "0 0 0 1px var(--kw-color-error-interactive)"
-                : "0 0 0 1px var(--kw-color-border-focus)";
+                ? "0 0 0 1px var(--kw-color-error-text, #EF4444)"
+                : "0 0 0 1px var(--kw-color-border-focus, #FFFFFF)";
             }}
             onBlur={(e) => {
               e.currentTarget.style.borderColor = hasError
-                ? "var(--kw-color-error-border)"
-                : "var(--kw-color-border-subtle)";
+                ? "var(--kw-color-error-text, #EF4444)"
+                : "var(--kw-color-border-default, rgba(255, 255, 255, 0.12))";
               e.currentTarget.style.boxShadow = "none";
             }}
             {...props}
@@ -177,6 +187,11 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                     key={opt.value}
                     value={opt.value}
                     disabled={opt.disabled}
+                    style={{
+                      backgroundColor:
+                        "var(--kw-color-bg-elevated, var(--kaiwen-color-surface-elevated, #212121))",
+                      color: "var(--kw-color-text-primary, #ECECEC)",
+                    }}
                   >
                     {opt.label}
                   </option>
@@ -189,7 +204,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
               position: "absolute",
               right: "12px",
               pointerEvents: "none",
-              color: "var(--kw-color-text-tertiary)",
+              color: "var(--kw-color-text-tertiary, #737373)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -204,8 +219,9 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             id={errorId}
             role="alert"
             style={{
-              fontSize: "var(--kw-font-size-xs)",
-              color: "var(--kw-color-error-text)",
+              fontSize: "12px",
+              color: "var(--kw-color-error-text, #EF4444)",
+              fontFamily: "var(--kaiwen-font-sans, sans-serif)",
             }}
           >
             {errorMessage}
@@ -216,8 +232,9 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           <span
             id={helperId}
             style={{
-              fontSize: "var(--kw-font-size-xs)",
-              color: "var(--kw-color-text-tertiary)",
+              fontSize: "12px",
+              color: "var(--kw-color-text-tertiary, #737373)",
+              fontFamily: "var(--kaiwen-font-sans, sans-serif)",
             }}
           >
             {helperText}

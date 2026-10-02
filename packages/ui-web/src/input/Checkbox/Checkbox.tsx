@@ -2,21 +2,24 @@ import * as React from "react";
 import { cn } from "@kaiwen/utilities";
 import { CheckIcon, MinusIcon } from "@kaiwen/icons";
 
-export interface CheckboxProps extends Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  "size"
-> {
+export type CheckboxSize = "sm" | "md" | "lg";
+
+export interface CheckboxProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   label?: React.ReactNode;
   helperText?: string;
   error?: string | boolean;
   indeterminate?: boolean;
-  size?: "sm" | "md" | "lg";
+  size?: CheckboxSize;
 }
 
-const sizeConfig = {
-  sm: { box: 16, icon: 12, font: "var(--kw-font-size-xs)" },
-  md: { box: 18, icon: 14, font: "var(--kw-font-size-sm)" },
-  lg: { box: 22, icon: 16, font: "var(--kw-font-size-base)" },
+const sizeConfig: Record<
+  CheckboxSize,
+  { box: number; icon: number; font: string; radius: string }
+> = {
+  sm: { box: 16, icon: 12, font: "13px", radius: "4px" },
+  md: { box: 20, icon: 14, font: "14px", radius: "5px" },
+  lg: { box: 24, icon: 16, font: "16px", radius: "6px" },
 };
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
@@ -74,18 +77,19 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       <label
         htmlFor={inputId}
         className={cn(
-          "kw-checkbox-wrapper",
-          disabled && "kw-is-disabled",
-          hasError && "kw-has-error",
+          "kaiwen-checkbox-wrapper",
+          disabled && "kaiwen-is-disabled",
+          hasError && "kaiwen-has-error",
           className,
         )}
         style={{
           display: "inline-flex",
           alignItems: "flex-start",
-          gap: "var(--kw-space-2)",
+          gap: "10px",
           cursor: disabled ? "not-allowed" : "pointer",
           userSelect: "none",
-          opacity: disabled ? 0.6 : 1,
+          opacity: disabled ? 0.5 : 1,
+          fontFamily: "var(--kaiwen-font-sans, sans-serif)",
           ...style,
         }}
       >
@@ -96,6 +100,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             alignItems: "center",
             justifyContent: "center",
             marginTop: "2px",
+            flexShrink: 0,
           }}
         >
           <input
@@ -121,31 +126,35 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
               height: "100%",
               margin: 0,
               cursor: disabled ? "not-allowed" : "pointer",
+              zIndex: 1,
             }}
             {...props}
           />
           <span
-            className="kw-checkbox-box"
+            className="kaiwen-checkbox-box"
             style={{
               width: `${cfg.box}px`,
               height: `${cfg.box}px`,
-              borderRadius: "var(--kw-radius-xs)",
+              borderRadius: cfg.radius,
               border: `1.5px solid ${
                 hasError
-                  ? "var(--kw-color-error-border)"
+                  ? "var(--kw-color-error-text, #EF4444)"
                   : isChecked
-                    ? "var(--kw-color-interactive-primary)"
-                    : "var(--kw-color-border-subtle)"
+                    ? "var(--kw-color-interactive-primary, #FFFFFF)"
+                    : "var(--kw-color-border-default, rgba(255, 255, 255, 0.2))"
               }`,
               backgroundColor: isChecked
-                ? "var(--kw-color-interactive-primary)"
+                ? "var(--kw-color-interactive-primary, #FFFFFF)"
+                : "var(--kw-color-bg-subtle, transparent)",
+              color: isChecked
+                ? "var(--kw-color-text-inverse, #0D0D0D)"
                 : "transparent",
-              color: "var(--kw-color-text-inverse)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               transition:
-                "background-color var(--kw-motion-duration-fast) var(--kw-motion-ease-out), border-color var(--kw-motion-duration-fast) var(--kw-motion-ease-out)",
+                "background-color var(--kaiwen-duration-fast, 120ms) ease, border-color var(--kaiwen-duration-fast, 120ms) ease, box-shadow var(--kaiwen-duration-fast, 120ms) ease",
+              boxSizing: "border-box",
             }}
           >
             {indeterminate ? (
@@ -168,9 +177,9 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
               <span
                 style={{
                   fontSize: cfg.font,
-                  color: "var(--kw-color-text-primary)",
-                  fontWeight: "var(--kw-font-weight-medium)",
-                  lineHeight: "1.3",
+                  color: "var(--kw-color-text-primary, #ECECEC)",
+                  fontWeight: 500,
+                  lineHeight: "1.4",
                 }}
               >
                 {label}
@@ -179,9 +188,9 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             {helperText && !hasError && (
               <span
                 style={{
-                  fontSize: "var(--kw-font-size-xs)",
-                  color: "var(--kw-color-text-tertiary)",
-                  lineHeight: "1.3",
+                  fontSize: "12px",
+                  color: "var(--kw-color-text-secondary, #B4B4B4)",
+                  lineHeight: "1.4",
                 }}
               >
                 {helperText}
@@ -190,9 +199,9 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             {typeof error === "string" && (
               <span
                 style={{
-                  fontSize: "var(--kw-font-size-xs)",
-                  color: "var(--kw-color-error-text)",
-                  lineHeight: "1.3",
+                  fontSize: "12px",
+                  color: "var(--kw-color-error-text, #EF4444)",
+                  lineHeight: "1.4",
                 }}
               >
                 {error}

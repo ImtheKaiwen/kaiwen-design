@@ -175,7 +175,7 @@ ${formatBlock({ ...sharedVars, ...darkVars })}
 
 [data-theme="light"],
 .light {
-${formatBlock(lightVars)}
+${formatBlock({ ...sharedVars, ...lightVars })}
 }
 `;
 }

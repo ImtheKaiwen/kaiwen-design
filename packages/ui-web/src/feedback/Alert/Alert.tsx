@@ -24,27 +24,27 @@ export interface AlertProps extends Omit<
 const variantStyles: Record<AlertVariant, React.CSSProperties> = {
   info: {
     backgroundColor:
-      "var(--kaiwen-color-status-info-subtle, rgba(59, 130, 246, 0.15))",
-    borderColor: "rgba(59, 130, 246, 0.3)",
-    color: "var(--kaiwen-color-text-primary, #ECECEC)",
+      "var(--kw-color-status-info-subtle, var(--kaiwen-color-status-info-subtle, rgba(59, 130, 246, 0.12)))",
+    borderColor: "var(--kw-color-status-info, rgba(59, 130, 246, 0.35))",
+    color: "var(--kw-color-text-primary, var(--kaiwen-color-text-primary, currentColor))",
   },
   success: {
     backgroundColor:
-      "var(--kaiwen-color-status-success-subtle, rgba(16, 163, 127, 0.15))",
-    borderColor: "rgba(16, 163, 127, 0.3)",
-    color: "var(--kaiwen-color-text-primary, #ECECEC)",
+      "var(--kw-color-status-success-subtle, var(--kaiwen-color-status-success-subtle, rgba(16, 163, 127, 0.12)))",
+    borderColor: "var(--kw-color-status-success, rgba(16, 163, 127, 0.35))",
+    color: "var(--kw-color-text-primary, var(--kaiwen-color-text-primary, currentColor))",
   },
   warning: {
     backgroundColor:
-      "var(--kaiwen-color-status-warning-subtle, rgba(245, 158, 11, 0.15))",
-    borderColor: "rgba(245, 158, 11, 0.3)",
-    color: "var(--kaiwen-color-text-primary, #ECECEC)",
+      "var(--kw-color-status-warning-subtle, var(--kaiwen-color-status-warning-subtle, rgba(245, 158, 11, 0.12)))",
+    borderColor: "var(--kw-color-status-warning, rgba(245, 158, 11, 0.35))",
+    color: "var(--kw-color-text-primary, var(--kaiwen-color-text-primary, currentColor))",
   },
   error: {
     backgroundColor:
-      "var(--kaiwen-color-status-error-subtle, rgba(239, 68, 68, 0.15))",
-    borderColor: "rgba(239, 68, 68, 0.3)",
-    color: "var(--kaiwen-color-text-primary, #ECECEC)",
+      "var(--kw-color-status-error-subtle, var(--kaiwen-color-status-error-subtle, rgba(239, 68, 68, 0.12)))",
+    borderColor: "var(--kw-color-status-error, rgba(239, 68, 68, 0.35))",
+    color: "var(--kw-color-text-primary, var(--kaiwen-color-text-primary, currentColor))",
   },
 };
 

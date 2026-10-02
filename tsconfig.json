@@ -3,8 +3,25 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@kaiwen/tokens": ["packages/tokens/src/index.ts"],
+      "@kaiwen/tokens/*": ["packages/tokens/src/*"],
+      "@kaiwen/utilities": ["packages/utilities/src/index.ts"],
+      "@kaiwen/utilities/*": ["packages/utilities/src/*"],
+      "@kaiwen/brand": ["packages/brand/src/index.ts"],
+      "@kaiwen/brand/*": ["packages/brand/src/*"],
+      "@kaiwen/icons": ["packages/icons/src/index.ts"],
+      "@kaiwen/icons/*": ["packages/icons/src/*"],
+      "@kaiwen/ui-web": ["packages/ui-web/src/index.ts"],
+      "@kaiwen/ui-web/*": ["packages/ui-web/src/*"],
+      "@kaiwen/ui-native": ["packages/ui-native/src/index.ts"],
+      "@kaiwen/ui-native/*": ["packages/ui-native/src/*"]
+    }
   },
   "exclude": ["node_modules", "dist", ".turbo"]
 }

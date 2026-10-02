@@ -38,18 +38,50 @@ export const useToast = (): ToastContextValue => {
   return ctx;
 };
 
-const variantIcons: Record<ToastVariant, React.ReactNode> = {
-  default: null,
-  success: (
-    <CheckCircleIcon size={18} color="var(--kw-color-success-interactive)" />
-  ),
-  error: (
-    <AlertCircleIcon size={18} color="var(--kw-color-error-interactive)" />
-  ),
-  warning: (
-    <AlertCircleIcon size={18} color="var(--kw-color-warning-interactive)" />
-  ),
-  info: <InfoIcon size={18} color="var(--kw-color-interactive-primary)" />,
+const variantConfig: Record<
+  ToastVariant,
+  { icon: React.ReactNode; accentColor: string }
+> = {
+  default: {
+    icon: null,
+    accentColor: "var(--kw-color-border-default, rgba(255, 255, 255, 0.15))",
+  },
+  success: {
+    icon: (
+      <CheckCircleIcon
+        size={18}
+        color="var(--kw-color-success-interactive, #10A37F)"
+      />
+    ),
+    accentColor: "var(--kw-color-success-interactive, #10A37F)",
+  },
+  error: {
+    icon: (
+      <AlertCircleIcon
+        size={18}
+        color="var(--kw-color-error-interactive, #EF4444)"
+      />
+    ),
+    accentColor: "var(--kw-color-error-interactive, #EF4444)",
+  },
+  warning: {
+    icon: (
+      <AlertCircleIcon
+        size={18}
+        color="var(--kw-color-warning-interactive, #F59E0B)"
+      />
+    ),
+    accentColor: "var(--kw-color-warning-interactive, #F59E0B)",
+  },
+  info: {
+    icon: (
+      <InfoIcon
+        size={18}
+        color="var(--kw-color-interactive-primary, #3B82F6)"
+      />
+    ),
+    accentColor: "var(--kw-color-interactive-primary, #3B82F6)",
+  },
 };
 
 export const ToastCard: React.FC<{
@@ -72,37 +104,42 @@ export const ToastCard: React.FC<{
     return () => clearTimeout(timer);
   }, [id, duration, onDismiss]);
 
-  const icon = variantIcons[variant];
+  const cfg = variantConfig[variant];
   const isError = variant === "error";
 
   return (
     <div
       role={isError ? "alert" : "status"}
       aria-live={isError ? "assertive" : "polite"}
-      className={cn("kw-toast-card", `kw-toast-${variant}`)}
+      className={cn("kaiwen-toast-card", `kaiwen-toast-${variant}`)}
       style={{
         display: "flex",
         alignItems: "flex-start",
-        gap: "var(--kw-space-3)",
-        padding: "var(--kw-space-3-5) var(--kw-space-4)",
-        backgroundColor: "var(--kw-color-bg-elevated)",
-        color: "var(--kw-color-text-primary)",
-        border: "1px solid var(--kw-color-border-subtle)",
-        borderRadius: "var(--kw-radius-lg)",
-        boxShadow: "var(--kw-shadow-xl)",
-        minWidth: "300px",
+        gap: "12px",
+        padding: "14px 16px",
+        backgroundColor:
+          "var(--kw-color-bg-elevated, var(--kaiwen-color-surface-elevated, #212121))",
+        color: "var(--kw-color-text-primary, #ECECEC)",
+        border:
+          "1px solid var(--kw-color-border-default, rgba(255, 255, 255, 0.12))",
+        borderLeft: `4px solid ${cfg.accentColor}`,
+        borderRadius: "10px",
+        boxShadow:
+          "0 12px 32px -4px rgba(0, 0, 0, 0.35), 0 4px 8px -2px rgba(0, 0, 0, 0.15)",
+        minWidth: "320px",
         maxWidth: "420px",
         pointerEvents: "auto",
-        animation:
-          "kwFadeIn var(--kw-motion-duration-fast) var(--kw-motion-ease-out)",
+        backdropFilter: "blur(16px)",
         boxSizing: "border-box",
+        fontFamily: "var(--kaiwen-font-sans, sans-serif)",
+        animation: "kaiwenToastSlideIn 240ms cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
-      {icon && (
+      {cfg.icon && (
         <span
-          style={{ display: "inline-flex", marginTop: "2px", flexShrink: 0 }}
+          style={{ display: "inline-flex", marginTop: "1px", flexShrink: 0 }}
         >
-          {icon}
+          {cfg.icon}
         </span>
       )}
 
@@ -110,10 +147,10 @@ export const ToastCard: React.FC<{
         {title && (
           <div
             style={{
-              fontSize: "var(--kw-font-size-sm)",
-              fontWeight: "var(--kw-font-weight-medium)",
-              color: "var(--kw-color-text-primary)",
-              lineHeight: "1.4",
+              fontSize: "14px",
+              fontWeight: 600,
+              color: "var(--kw-color-text-primary, #ECECEC)",
+              lineHeight: "1.35",
             }}
           >
             {title}
@@ -122,10 +159,10 @@ export const ToastCard: React.FC<{
         {description && (
           <div
             style={{
-              fontSize: "var(--kw-font-size-xs)",
-              color: "var(--kw-color-text-secondary)",
+              fontSize: "13px",
+              color: "var(--kw-color-text-secondary, #B4B4B4)",
               lineHeight: "1.4",
-              marginTop: title ? "2px" : 0,
+              marginTop: title ? "3px" : 0,
             }}
           >
             {description}
@@ -140,15 +177,25 @@ export const ToastCard: React.FC<{
         style={{
           background: "transparent",
           border: "none",
-          padding: "2px",
+          padding: "4px",
           cursor: "pointer",
-          color: "var(--kw-color-text-tertiary)",
+          color: "var(--kw-color-text-tertiary, #737373)",
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
-          borderRadius: "var(--kw-radius-sm)",
-          marginLeft: "var(--kw-space-1)",
+          borderRadius: "4px",
+          marginLeft: "4px",
           flexShrink: 0,
+          transition: "color 120ms ease, background-color 120ms ease",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.color = "var(--kw-color-text-primary, #FFFFFF)";
+          e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.08)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.color =
+            "var(--kw-color-text-tertiary, #737373)";
+          e.currentTarget.style.backgroundColor = "transparent";
         }}
       >
         <CloseIcon size={14} />
@@ -211,10 +258,10 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({
   );
 
   const positionStyles: Record<string, React.CSSProperties> = {
-    "top-right": { top: "var(--kw-space-5)", right: "var(--kw-space-5)" },
-    "top-left": { top: "var(--kw-space-5)", left: "var(--kw-space-5)" },
-    "bottom-right": { bottom: "var(--kw-space-5)", right: "var(--kw-space-5)" },
-    "bottom-left": { bottom: "var(--kw-space-5)", left: "var(--kw-space-5)" },
+    "top-right": { top: "24px", right: "24px" },
+    "top-left": { top: "24px", left: "24px" },
+    "bottom-right": { bottom: "24px", right: "24px" },
+    "bottom-left": { bottom: "24px", left: "24px" },
   };
 
   return (
@@ -232,13 +279,13 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({
     >
       {children}
       <div
-        className="kw-toast-container"
+        className="kaiwen-toast-container"
         style={{
           position: "fixed",
-          zIndex: "var(--kw-z-toast, 1200)" as unknown as number,
+          zIndex: 9999,
           display: "flex",
           flexDirection: "column",
-          gap: "var(--kw-space-2-5)",
+          gap: "10px",
           pointerEvents: "none",
           ...positionStyles[position],
         }}
