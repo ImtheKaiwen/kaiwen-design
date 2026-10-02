@@ -159,3 +159,36 @@ export const UserIcon = createIcon("UserIcon", () => (
     <circle cx="12" cy="7" r="4" />
   </>
 ));
+
+export const MinusIcon = createIcon("MinusIcon", () => (
+  <line x1="5" y1="12" x2="19" y2="12" />
+));
+
+export const SparklesIcon = createIcon("SparklesIcon", () => (
+  <>
+    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+    <path d="M5 3v4" />
+    <path d="M19 17v4" />
+    <path d="M3 5h4" />
+    <path d="M17 19h4" />
+  </>
+));
+
+export const PaperclipIcon = createIcon("PaperclipIcon", () => (
+  <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l7.88-7.88" />
+));
+
+export const MicIcon = createIcon("MicIcon", () => (
+  <>
+    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+    <line x1="12" y1="19" x2="12" y2="22" />
+  </>
+));
+
+export const SendIcon = createIcon("SendIcon", () => (
+  <>
+    <line x1="22" y1="2" x2="11" y2="13" />
+    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+  </>
+));

@@ -14,6 +14,15 @@ import {
   Dialog,
   Tabs,
   Alert,
+  TextArea,
+  Checkbox,
+  Switch,
+  Radio,
+  RadioGroup,
+  Select,
+  Drawer,
+  Progress,
+  EmptyState,
 } from "../index.js";
 
 describe("@kaiwen/ui-web Components", () => {
@@ -202,6 +211,116 @@ describe("@kaiwen/ui-web Components", () => {
       );
       expect(screen.getByText("Item 1")).toBeDefined();
       expect(screen.getByText("Item 2")).toBeDefined();
+    });
+  });
+
+  describe("TextArea", () => {
+    it("renders label and character counter", () => {
+      render(
+        <TextArea
+          label="Notes"
+          defaultValue="Hello"
+          maxLength={100}
+          showCount
+        />,
+      );
+      expect(screen.getByLabelText("Notes")).toBeDefined();
+      expect(screen.getByText("5 / 100")).toBeDefined();
+    });
+  });
+
+  describe("Checkbox", () => {
+    it("handles checking and unchecking", () => {
+      const handleChange = vi.fn();
+      render(<Checkbox label="Accept terms" onChange={handleChange} />);
+      const cb = screen.getByRole("checkbox", { name: "Accept terms" });
+      fireEvent.click(cb);
+      expect(handleChange).toHaveBeenCalled();
+    });
+  });
+
+  describe("Switch", () => {
+    it("toggles state on click", () => {
+      const handleChange = vi.fn();
+      render(<Switch label="Dark Mode" onChange={handleChange} />);
+      const sw = screen.getByRole("switch");
+      fireEvent.click(sw);
+      expect(handleChange).toHaveBeenCalledWith(true);
+    });
+  });
+
+  describe("Radio & RadioGroup", () => {
+    it("manages single selection", () => {
+      const handleChange = vi.fn();
+      render(
+        <RadioGroup defaultValue="apple" onChange={handleChange}>
+          <Radio value="apple" label="Apple" />
+          <Radio value="banana" label="Banana" />
+        </RadioGroup>,
+      );
+      const banana = screen.getByRole("radio", { name: "Banana" });
+      fireEvent.click(banana);
+      expect(handleChange).toHaveBeenCalledWith("banana");
+    });
+  });
+
+  describe("Select", () => {
+    it("renders options and selects value", () => {
+      const handleChange = vi.fn();
+      render(
+        <Select
+          label="Model"
+          onChange={handleChange}
+          options={[
+            { value: "gpt-4o", label: "GPT-4o" },
+            { value: "o1", label: "o1" },
+          ]}
+        />,
+      );
+      const select = screen.getByLabelText("Model") as HTMLSelectElement;
+      fireEvent.change(select, { target: { value: "o1" } });
+      expect(handleChange).toHaveBeenCalled();
+    });
+  });
+
+  describe("Drawer", () => {
+    it("renders when open and responds to close", () => {
+      const handleClose = vi.fn();
+      render(
+        <Drawer isOpen onClose={handleClose} title="Navigation Drawer">
+          <p>Drawer Content</p>
+        </Drawer>,
+      );
+      expect(screen.getByText("Navigation Drawer")).toBeDefined();
+      expect(screen.getByText("Drawer Content")).toBeDefined();
+      fireEvent.click(screen.getByRole("button", { name: "Close drawer" }));
+      expect(handleClose).toHaveBeenCalled();
+    });
+  });
+
+  describe("Progress", () => {
+    it("renders progressbar with correct value", () => {
+      render(<Progress value={45} max={100} label="Storage" showValue />);
+      const bar = screen.getByRole("progressbar");
+      expect(bar.getAttribute("aria-valuenow")).toBe("45");
+      expect(screen.getByText("45%")).toBeDefined();
+    });
+  });
+
+  describe("EmptyState", () => {
+    it("renders title, description and CTA", () => {
+      render(
+        <EmptyState
+          title="No chats yet"
+          description="Start a new chat to begin exploring"
+          action={<button>New Chat</button>}
+        />,
+      );
+      expect(screen.getByText("No chats yet")).toBeDefined();
+      expect(
+        screen.getByText("Start a new chat to begin exploring"),
+      ).toBeDefined();
+      expect(screen.getByRole("button", { name: "New Chat" })).toBeDefined();
     });
   });
 });
