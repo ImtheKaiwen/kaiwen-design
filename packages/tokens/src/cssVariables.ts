@@ -73,6 +73,26 @@ export function themeToCssVariables(theme: Theme): Record<string, string> {
   vars["--kaiwen-shadow-lg"] = theme.shadows.lg;
   vars["--kaiwen-shadow-xl"] = theme.shadows.xl;
 
+  // Unified --kw- color mappings
+  vars["--kw-color-bg-canvas"] = theme.colors.background.primary;
+  vars["--kw-color-bg-primary"] = theme.colors.background.primary;
+  vars["--kw-color-bg-subtle"] = theme.colors.surface.primary;
+  vars["--kw-color-bg-elevated"] = theme.colors.surface.elevated;
+  vars["--kw-color-border-subtle"] = theme.colors.border.subtle;
+  vars["--kw-color-border-default"] = theme.colors.border.default;
+  vars["--kw-color-border-focus"] = theme.colors.border.focus;
+  vars["--kw-color-text-primary"] = theme.colors.text.primary;
+  vars["--kw-color-text-secondary"] = theme.colors.text.secondary;
+  vars["--kw-color-text-tertiary"] = theme.colors.text.muted;
+  vars["--kw-color-text-inverse"] = theme.colors.text.inverse;
+  vars["--kw-color-interactive-primary"] = theme.colors.interactive.primaryBg;
+  vars["--kw-color-interactive-primary-hover"] = theme.colors.interactive.primaryHover;
+  vars["--kw-color-error-text"] = theme.colors.status.error;
+  vars["--kw-color-error-border"] = theme.colors.status.errorSubtle;
+  vars["--kw-color-error-interactive"] = theme.colors.status.error;
+  vars["--kw-color-success-interactive"] = theme.colors.status.success;
+  vars["--kw-color-warning-interactive"] = theme.colors.status.warning;
+
   return vars;
 }
 
@@ -85,16 +105,31 @@ export function generateTokensCss(): string {
   // Spacing
   Object.entries(darkTheme.spacing).forEach(([key, val]) => {
     sharedVars[`--kaiwen-space-${key}`] = val;
+    sharedVars[`--kw-space-${key}`] = val;
   });
 
   // Radius
   Object.entries(darkTheme.radius).forEach(([key, val]) => {
     sharedVars[`--kaiwen-radius-${key}`] = val;
+    sharedVars[`--kw-radius-${key}`] = val;
   });
 
   // Typography
   sharedVars["--kaiwen-font-sans"] = darkTheme.typography.fontFamilies.sans;
   sharedVars["--kaiwen-font-mono"] = darkTheme.typography.fontFamilies.mono;
+  sharedVars["--kw-font-sans"] = darkTheme.typography.fontFamilies.sans;
+  sharedVars["--kw-font-mono"] = darkTheme.typography.fontFamilies.mono;
+  sharedVars["--kw-font-size-xs"] = "12px";
+  sharedVars["--kw-font-size-sm"] = "14px";
+  sharedVars["--kw-font-size-base"] = "16px";
+  sharedVars["--kw-font-size-lg"] = "18px";
+  sharedVars["--kw-font-size-xl"] = "20px";
+  sharedVars["--kw-font-size-2xl"] = "24px";
+  sharedVars["--kw-font-weight-regular"] = "400";
+  sharedVars["--kw-font-weight-medium"] = "500";
+  sharedVars["--kw-font-weight-semibold"] = "600";
+  sharedVars["--kw-font-weight-bold"] = "700";
+  sharedVars["--kw-line-height-relaxed"] = "1.6";
 
   // Motion
   sharedVars["--kaiwen-duration-fast"] = darkTheme.motion.duration.fast;
@@ -106,9 +141,17 @@ export function generateTokensCss(): string {
   sharedVars["--kaiwen-easing-exit"] = darkTheme.motion.easing.exit;
   sharedVars["--kaiwen-easing-spring"] = darkTheme.motion.easing.spring;
 
+  sharedVars["--kw-motion-duration-fast"] = darkTheme.motion.duration.fast;
+  sharedVars["--kw-motion-duration-normal"] = darkTheme.motion.duration.normal;
+  sharedVars["--kw-motion-duration-slow"] = darkTheme.motion.duration.slow;
+  sharedVars["--kw-motion-ease-out"] = darkTheme.motion.easing.enter;
+  sharedVars["--kw-shadow-xl"] = darkTheme.shadows.xl;
+  sharedVars["--kw-shadow-2xl"] = "0 25px 50px -12px rgba(0, 0, 0, 0.4)";
+
   // Z-Index
   Object.entries(darkTheme.zIndex).forEach(([key, val]) => {
     sharedVars[`--kaiwen-z-${key}`] = String(val);
+    sharedVars[`--kw-z-${key}`] = String(val);
   });
 
   const darkVars = themeToCssVariables(darkTheme);

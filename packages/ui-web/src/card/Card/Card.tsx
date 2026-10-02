@@ -15,17 +15,25 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const variantStyles: Record<CardVariant, React.CSSProperties> = {
   default: {
-    backgroundColor: "var(--kaiwen-color-surface-primary, #111113)",
-    border: "1px solid var(--kaiwen-color-border-subtle, #18181B)",
+    backgroundColor:
+      "var(--kw-color-bg-subtle, var(--kaiwen-color-surface-primary, #171717))",
+    border:
+      "1px solid var(--kw-color-border-subtle, var(--kaiwen-color-border-subtle, rgba(255, 255, 255, 0.08)))",
+    color: "var(--kw-color-text-primary, var(--kaiwen-color-text-primary, #ECECEC))",
   },
   elevated: {
-    backgroundColor: "var(--kaiwen-color-surface-elevated, #18181B)",
-    border: "1px solid var(--kaiwen-color-border-subtle, #18181B)",
+    backgroundColor:
+      "var(--kw-color-bg-elevated, var(--kaiwen-color-surface-elevated, #212121))",
+    border:
+      "1px solid var(--kw-color-border-subtle, var(--kaiwen-color-border-subtle, rgba(255, 255, 255, 0.08)))",
+    color: "var(--kw-color-text-primary, var(--kaiwen-color-text-primary, #ECECEC))",
     boxShadow: "var(--kaiwen-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.5))",
   },
   outlined: {
     backgroundColor: "transparent",
-    border: "1px solid var(--kaiwen-color-border-default, #27272A)",
+    border:
+      "1px solid var(--kw-color-border-default, var(--kaiwen-color-border-default, #27272A))",
+    color: "var(--kw-color-text-primary, var(--kaiwen-color-text-primary, #ECECEC))",
   },
 };
 
