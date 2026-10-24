@@ -1,0 +1,33 @@
+name: Release packages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  verify-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.9.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.16.0
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint && pnpm typecheck && pnpm test && pnpm build
+      - run: pnpm --filter './packages/*' pack --pack-destination ../../release-artifacts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: package-candidates
+          path: release-artifacts
+      - name: Publish public packages
+        run: pnpm --recursive --filter './packages/*' publish --access public --no-git-checks --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

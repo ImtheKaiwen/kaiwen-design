@@ -1,0 +1,40 @@
+{
+  "name": "@imthekaiwen/tokens",
+  "version": "0.2.0",
+  "description": "Semantic design tokens for the Kaiwen Design System.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImtheKaiwen/kaiwen-design.git",
+    "directory": "packages/tokens"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/styles.css --format esm --dts --clean",
+    "lint": "eslint src",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run --passWithNoTests",
+    "docs:check": "node -e \"import('./dist/index.js')\""
+  },
+  "devDependencies": {
+    "tsup": "8.5.1",
+    "vitest": "3.2.7"
+  }
+}

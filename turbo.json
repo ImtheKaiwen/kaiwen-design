@@ -1,0 +1,16 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "storybook-static/**"]
+    },
+    "dev": { "cache": false, "persistent": true },
+    "storybook": { "cache": false, "persistent": true },
+    "lint": { "dependsOn": ["^build"] },
+    "typecheck": { "dependsOn": ["^build"] },
+    "test": { "dependsOn": ["^build"], "outputs": ["coverage/**"] },
+    "test:visual": { "dependsOn": ["build"], "outputs": ["test-results/**"] },
+    "docs:check": { "dependsOn": ["^build"] }
+  }
+}

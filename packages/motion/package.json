@@ -1,0 +1,46 @@
+{
+  "name": "@imthekaiwen/motion",
+  "version": "0.2.0",
+  "description": "Accessible motion policies and presets for the Kaiwen Design System.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImtheKaiwen/kaiwen-design.git",
+    "directory": "packages/motion"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.tsx --format esm --dts --clean --external react",
+    "lint": "eslint src",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run --passWithNoTests",
+    "docs:check": "node -e \"import('./dist/index.js')\""
+  },
+  "dependencies": {
+    "@imthekaiwen/tokens": "0.2.0",
+    "motion": "14.6.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.3 <20"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "react": "catalog:",
+    "tsup": "8.5.1",
+    "vitest": "3.2.7"
+  }
+}

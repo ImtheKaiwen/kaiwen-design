@@ -1,0 +1,42 @@
+{
+  "name": "@imthekaiwen/studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "lint": "eslint src .storybook vite.config.ts playwright.config.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:visual": "playwright test",
+    "docs:check": "node -e \"const p=require('./package.json'); if(!p.private) process.exit(1)\""
+  },
+  "dependencies": {
+    "@imthekaiwen/icons": "workspace:*",
+    "@imthekaiwen/motion": "workspace:*",
+    "@imthekaiwen/tokens": "workspace:*",
+    "@imthekaiwen/ui-web": "workspace:*",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@axe-core/playwright": "4.14.0",
+    "@storybook/addon-a11y": "10.6.3",
+    "@storybook/react-vite": "10.6.3",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "5.2.0",
+    "jsdom": "26.1.0",
+    "storybook": "10.6.3",
+    "vite": "7.3.7",
+    "vitest": "3.2.7"
+  }
+}

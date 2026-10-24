@@ -1,0 +1,4084 @@
+{
+  "schemaVersion": 2,
+  "package": "@imthekaiwen/ui-web",
+  "components": [
+    {
+      "name": "Button",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Button",
+      "status": "stable",
+      "platform": "web",
+      "category": "action",
+      "props": [
+        {
+          "name": "variant",
+          "required": false,
+          "type": "'primary' | 'secondary' | 'outline' | 'ghost'",
+          "description": "Visual hierarchy of the action."
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "'sm' | 'md' | 'lg'",
+          "description": "Control height and typography."
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean",
+          "description": "Shows a progress indicator while preserving label geometry and prevents activation."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides the global motion level without bypassing reduced-motion."
+        }
+      ],
+      "states": [
+        "Default",
+        "Loading",
+        "Disabled",
+        "LongTurkishLabel",
+        "Expressive"
+      ],
+      "tokens": [
+        "--kw-action-primary-bg",
+        "--kw-action-primary-fg",
+        "--kw-border-strong",
+        "--kw-border-width",
+        "--kw-button-height-lg",
+        "--kw-button-height-md",
+        "--kw-button-height-sm",
+        "--kw-button-hover-scale",
+        "--kw-button-motion-duration",
+        "--kw-button-motion-easing",
+        "--kw-button-press-scale",
+        "--kw-control-pad-x",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-font-sans",
+        "--kw-radius-full",
+        "--kw-radius-md",
+        "--kw-reorder-handle-size",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-20",
+        "--kw-space-8",
+        "--kw-surface-default",
+        "--kw-surface-hover",
+        "--kw-surface-subtle",
+        "--kw-text-primary",
+        "--kw-type-body-size",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/Button/Button.stories.tsx#Default"
+        },
+        {
+          "name": "Loading",
+          "exportName": "Loading",
+          "reference": "src/components/Button/Button.stories.tsx#Loading"
+        },
+        {
+          "name": "Disabled",
+          "exportName": "Disabled",
+          "reference": "src/components/Button/Button.stories.tsx#Disabled"
+        },
+        {
+          "name": "LongTurkishLabel",
+          "exportName": "LongTurkishLabel",
+          "reference": "src/components/Button/Button.stories.tsx#LongTurkishLabel"
+        },
+        {
+          "name": "Expressive",
+          "exportName": "Expressive",
+          "reference": "src/components/Button/Button.stories.tsx#Expressive"
+        }
+      ],
+      "propsReference": "src/components/Button/Button.tsx",
+      "storyReference": "src/components/Button/Button.stories.tsx",
+      "testReference": "src/components/Button/Button.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Switch",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Switch",
+      "status": "stable",
+      "platform": "web",
+      "category": "input",
+      "props": [
+        {
+          "name": "checked",
+          "required": false,
+          "type": "boolean",
+          "description": "Controlled checked state."
+        },
+        {
+          "name": "defaultChecked",
+          "required": false,
+          "type": "boolean",
+          "description": "Initial value for uncontrolled usage."
+        },
+        {
+          "name": "onCheckedChange",
+          "required": false,
+          "type": "(checked: boolean) => void",
+          "description": "Called whenever user interaction requests a state change."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides global motion without bypassing reduced-motion."
+        }
+      ],
+      "states": [
+        "Default",
+        "Checked",
+        "Disabled",
+        "Expressive",
+        "Controlled"
+      ],
+      "tokens": [
+        "--kw-action-primary-bg",
+        "--kw-action-primary-fg",
+        "--kw-border-strong",
+        "--kw-border-width",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-radius-full",
+        "--kw-surface-default",
+        "--kw-surface-subtle",
+        "--kw-switch-height",
+        "--kw-switch-thumb",
+        "--kw-switch-width"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/Switch/Switch.stories.tsx#Default"
+        },
+        {
+          "name": "Checked",
+          "exportName": "Checked",
+          "reference": "src/components/Switch/Switch.stories.tsx#Checked"
+        },
+        {
+          "name": "Disabled",
+          "exportName": "Disabled",
+          "reference": "src/components/Switch/Switch.stories.tsx#Disabled"
+        },
+        {
+          "name": "Expressive",
+          "exportName": "Expressive",
+          "reference": "src/components/Switch/Switch.stories.tsx#Expressive"
+        },
+        {
+          "name": "Controlled",
+          "exportName": "Controlled",
+          "reference": "src/components/Switch/Switch.stories.tsx#Controlled"
+        }
+      ],
+      "propsReference": "src/components/Switch/Switch.tsx",
+      "storyReference": "src/components/Switch/Switch.stories.tsx",
+      "testReference": "src/components/Switch/Switch.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Checkbox",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Checkbox",
+      "status": "stable",
+      "platform": "web",
+      "category": "input",
+      "props": [
+        {
+          "name": "checked",
+          "required": false,
+          "type": "CheckboxState",
+          "description": "Controlled checked or mixed state."
+        },
+        {
+          "name": "defaultChecked",
+          "required": false,
+          "type": "boolean",
+          "description": "Initial checked state for uncontrolled usage."
+        },
+        {
+          "name": "onCheckedChange",
+          "required": false,
+          "type": "(checked: boolean) => void",
+          "description": "Called whenever user interaction requests a boolean state change."
+        },
+        {
+          "name": "label",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Accessible label displayed beside the control."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional supporting text."
+        },
+        {
+          "name": "labelVisibility",
+          "required": false,
+          "type": "'visible' | 'sr-only'",
+          "description": "Visually hides the label while preserving its accessible name."
+        }
+      ],
+      "states": [
+        "Default",
+        "Checked",
+        "Indeterminate",
+        "Disabled",
+        "WithDescription",
+        "LongTurkishContent"
+      ],
+      "tokens": [
+        "--kw-action-primary-bg",
+        "--kw-action-primary-fg",
+        "--kw-border-strong",
+        "--kw-border-width",
+        "--kw-checkbox-size",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-radius-xs",
+        "--kw-space-2",
+        "--kw-space-8",
+        "--kw-surface-default",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/Checkbox/Checkbox.stories.tsx#Default"
+        },
+        {
+          "name": "Checked",
+          "exportName": "Checked",
+          "reference": "src/components/Checkbox/Checkbox.stories.tsx#Checked"
+        },
+        {
+          "name": "Indeterminate",
+          "exportName": "Indeterminate",
+          "reference": "src/components/Checkbox/Checkbox.stories.tsx#Indeterminate"
+        },
+        {
+          "name": "Disabled",
+          "exportName": "Disabled",
+          "reference": "src/components/Checkbox/Checkbox.stories.tsx#Disabled"
+        },
+        {
+          "name": "WithDescription",
+          "exportName": "WithDescription",
+          "reference": "src/components/Checkbox/Checkbox.stories.tsx#WithDescription"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/components/Checkbox/Checkbox.stories.tsx#LongTurkishContent"
+        }
+      ],
+      "propsReference": "src/components/Checkbox/Checkbox.tsx",
+      "storyReference": "src/components/Checkbox/Checkbox.stories.tsx",
+      "testReference": "src/components/Checkbox/Checkbox.test.tsx",
+      "since": "0.2.0"
+    },
+    {
+      "name": "Card",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Card",
+      "status": "stable",
+      "platform": "web",
+      "category": "surface",
+      "props": [
+        {
+          "name": "surface",
+          "required": false,
+          "type": "'default' | 'subtle' | 'raised'",
+          "description": "Semantic surface treatment. Raised is reserved for meaningful elevation."
+        },
+        {
+          "name": "padding",
+          "required": false,
+          "type": "'sm' | 'md' | 'lg'",
+          "description": "Token-based internal spacing."
+        }
+      ],
+      "states": [
+        "Default",
+        "Subtle",
+        "Raised",
+        "LongTurkishContent"
+      ],
+      "tokens": [
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-radius-lg",
+        "--kw-shadow-raised",
+        "--kw-space-12",
+        "--kw-space-20",
+        "--kw-space-32",
+        "--kw-surface-default",
+        "--kw-surface-subtle",
+        "--kw-text-primary"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/Card/Card.stories.tsx#Default"
+        },
+        {
+          "name": "Subtle",
+          "exportName": "Subtle",
+          "reference": "src/components/Card/Card.stories.tsx#Subtle"
+        },
+        {
+          "name": "Raised",
+          "exportName": "Raised",
+          "reference": "src/components/Card/Card.stories.tsx#Raised"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/components/Card/Card.stories.tsx#LongTurkishContent"
+        }
+      ],
+      "propsReference": "src/components/Card/Card.tsx",
+      "storyReference": "src/components/Card/Card.stories.tsx",
+      "testReference": "src/components/Card/Card.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Tooltip",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Tooltip",
+      "status": "stable",
+      "platform": "web",
+      "category": "overlay",
+      "props": [
+        {
+          "name": "children",
+          "required": true,
+          "type": "ReactElement",
+          "description": "Element that owns the tooltip. It must accept a ref and accessibility props."
+        },
+        {
+          "name": "content",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Short supplemental explanation. Essential instructions should remain visible."
+        },
+        {
+          "name": "side",
+          "required": false,
+          "type": "'top' | 'right' | 'bottom' | 'left'",
+          "description": "Preferred placement; Radix resolves viewport collisions."
+        },
+        {
+          "name": "delayDuration",
+          "required": false,
+          "type": "number",
+          "description": "Delay before opening from pointer hover, in milliseconds."
+        }
+      ],
+      "states": [
+        "Default",
+        "Bottom",
+        "LongTurkishContent"
+      ],
+      "tokens": [
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-radius-sm",
+        "--kw-shadow-overlay",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-8",
+        "--kw-surface-default",
+        "--kw-text-primary",
+        "--kw-tooltip-duration",
+        "--kw-tooltip-easing",
+        "--kw-tooltip-max-width",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-z-tooltip"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/Tooltip/Tooltip.stories.tsx#Default"
+        },
+        {
+          "name": "Bottom",
+          "exportName": "Bottom",
+          "reference": "src/components/Tooltip/Tooltip.stories.tsx#Bottom"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/components/Tooltip/Tooltip.stories.tsx#LongTurkishContent"
+        }
+      ],
+      "propsReference": "src/components/Tooltip/Tooltip.tsx",
+      "storyReference": "src/components/Tooltip/Tooltip.stories.tsx",
+      "testReference": "src/components/Tooltip/Tooltip.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Input",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Input",
+      "status": "stable",
+      "platform": "web",
+      "category": "input",
+      "props": [
+        {
+          "name": "label",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Visible label associated with the native input."
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "'sm' | 'md' | 'lg'",
+          "description": "Control height and typography."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Supporting guidance announced after the label."
+        },
+        {
+          "name": "errorText",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Validation message; also marks the input invalid."
+        },
+        {
+          "name": "invalid",
+          "required": false,
+          "type": "boolean",
+          "description": "Explicit invalid state when the error message is rendered elsewhere."
+        },
+        {
+          "name": "onValueChange",
+          "required": false,
+          "type": "(value: string) => void",
+          "description": "Called with the current string value after the native change event fires."
+        }
+      ],
+      "states": [
+        "Default",
+        "Invalid",
+        "Disabled",
+        "Required",
+        "LongTurkishContent",
+        "Controlled"
+      ],
+      "tokens": [
+        "--kw-border-strong",
+        "--kw-border-width",
+        "--kw-control-pad-x",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-font-sans",
+        "--kw-input-height-lg",
+        "--kw-input-height-md",
+        "--kw-input-height-sm",
+        "--kw-radius-md",
+        "--kw-space-16",
+        "--kw-status-error",
+        "--kw-surface-default",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-text-tertiary",
+        "--kw-type-body-line",
+        "--kw-type-body-size",
+        "--kw-type-compact-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/Input/Input.stories.tsx#Default"
+        },
+        {
+          "name": "Invalid",
+          "exportName": "Invalid",
+          "reference": "src/components/Input/Input.stories.tsx#Invalid"
+        },
+        {
+          "name": "Disabled",
+          "exportName": "Disabled",
+          "reference": "src/components/Input/Input.stories.tsx#Disabled"
+        },
+        {
+          "name": "Required",
+          "exportName": "Required",
+          "reference": "src/components/Input/Input.stories.tsx#Required"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/components/Input/Input.stories.tsx#LongTurkishContent"
+        },
+        {
+          "name": "Controlled",
+          "exportName": "Controlled",
+          "reference": "src/components/Input/Input.stories.tsx#Controlled"
+        }
+      ],
+      "propsReference": "src/components/Input/Input.tsx",
+      "storyReference": "src/components/Input/Input.stories.tsx",
+      "testReference": "src/components/Input/Input.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Select",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Select",
+      "status": "stable",
+      "platform": "web",
+      "category": "input",
+      "props": [
+        {
+          "name": "label",
+          "required": true,
+          "type": "string",
+          "description": "Localized field label associated with the trigger."
+        },
+        {
+          "name": "options",
+          "required": true,
+          "type": "readonly SelectOption[]",
+          "description": "Options owned by the consuming application."
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "string | undefined",
+          "description": "Controlled selected value."
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "string | undefined",
+          "description": "Initial value for uncontrolled use."
+        },
+        {
+          "name": "onValueChange",
+          "required": false,
+          "type": "((value: string) => void) | undefined",
+          "description": "Reports selection changes."
+        },
+        {
+          "name": "placeholder",
+          "required": false,
+          "type": "string",
+          "description": "Text shown when no option has been selected."
+        },
+        {
+          "name": "labelVisibility",
+          "required": false,
+          "type": "'visible' | 'sr-only'",
+          "description": "Keeps the label accessible while visually hiding it."
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "'sm' | 'md'",
+          "description": "Visual density of the trigger."
+        },
+        {
+          "name": "name",
+          "required": false,
+          "type": "string",
+          "description": "Native form field name."
+        },
+        {
+          "name": "required",
+          "required": false,
+          "type": "boolean",
+          "description": "Marks the field as required for native form submission."
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean",
+          "description": "Prevents the control from opening or changing."
+        },
+        {
+          "name": "id",
+          "required": false,
+          "type": "string",
+          "description": "Stable trigger id used by forms and tests."
+        },
+        {
+          "name": "className",
+          "required": false,
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "states": [
+        "Default",
+        "Compact",
+        "Disabled",
+        "LongTurkishContent"
+      ],
+      "tokens": [
+        "--kw-border-strong",
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-font-sans",
+        "--kw-input-height-md",
+        "--kw-input-height-sm",
+        "--kw-radius-md",
+        "--kw-radius-sm",
+        "--kw-select-motion-duration",
+        "--kw-select-motion-easing",
+        "--kw-shadow-overlay",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-2",
+        "--kw-space-20",
+        "--kw-space-4",
+        "--kw-space-6",
+        "--kw-space-8",
+        "--kw-surface-default",
+        "--kw-surface-hover",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size",
+        "--kw-type-label-line",
+        "--kw-type-label-size",
+        "--kw-z-dropdown"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/Select/Select.stories.tsx#Default"
+        },
+        {
+          "name": "Compact",
+          "exportName": "Compact",
+          "reference": "src/components/Select/Select.stories.tsx#Compact"
+        },
+        {
+          "name": "Disabled",
+          "exportName": "Disabled",
+          "reference": "src/components/Select/Select.stories.tsx#Disabled"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/components/Select/Select.stories.tsx#LongTurkishContent"
+        }
+      ],
+      "propsReference": "src/components/Select/Select.tsx",
+      "storyReference": "src/components/Select/Select.stories.tsx",
+      "testReference": "src/components/Select/Select.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "CommandPalette",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "CommandPalette",
+      "status": "stable",
+      "platform": "web",
+      "category": "overlay",
+      "props": [
+        {
+          "name": "items",
+          "required": true,
+          "type": "readonly CommandPaletteItem[]",
+          "description": "Commands rendered and filtered by the palette."
+        },
+        {
+          "name": "onSelect",
+          "required": true,
+          "type": "(item: CommandPaletteItem) => void",
+          "description": "Called with the selected command before the palette closes."
+        },
+        {
+          "name": "title",
+          "required": true,
+          "type": "string",
+          "description": "Accessible dialog title."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "string",
+          "description": "Optional accessible dialog description."
+        },
+        {
+          "name": "searchLabel",
+          "required": true,
+          "type": "string",
+          "description": "Accessible label for the search input."
+        },
+        {
+          "name": "placeholder",
+          "required": false,
+          "type": "string",
+          "description": "Search input placeholder."
+        },
+        {
+          "name": "emptyLabel",
+          "required": true,
+          "type": "string",
+          "description": "Message shown when filtering returns no commands."
+        },
+        {
+          "name": "closeLabel",
+          "required": true,
+          "type": "string",
+          "description": "Accessible label for the close control."
+        },
+        {
+          "name": "trigger",
+          "required": false,
+          "type": "ReactElement",
+          "description": "Optional trigger composed with Radix `asChild`."
+        },
+        {
+          "name": "open",
+          "required": false,
+          "type": "boolean",
+          "description": "Controlled open state."
+        },
+        {
+          "name": "defaultOpen",
+          "required": false,
+          "type": "boolean",
+          "description": "Initial open state for uncontrolled use."
+        },
+        {
+          "name": "onOpenChange",
+          "required": false,
+          "type": "(open: boolean) => void",
+          "description": "Reports dialog state changes."
+        },
+        {
+          "name": "enableShortcut",
+          "required": false,
+          "type": "boolean",
+          "description": "Enables the conventional Control/Command + K global shortcut."
+        },
+        {
+          "name": "className",
+          "required": false,
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "states": [
+        "Default",
+        "Open"
+      ],
+      "tokens": [
+        "--kw-border-strong",
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-command-motion-duration",
+        "--kw-command-motion-easing",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-font-mono",
+        "--kw-font-sans",
+        "--kw-radius-lg",
+        "--kw-radius-md",
+        "--kw-radius-sm",
+        "--kw-shadow-overlay",
+        "--kw-space-10",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-2",
+        "--kw-space-20",
+        "--kw-space-24",
+        "--kw-space-32",
+        "--kw-space-4",
+        "--kw-space-6",
+        "--kw-space-8",
+        "--kw-surface-default",
+        "--kw-surface-hover",
+        "--kw-surface-subtle",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-text-tertiary",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size",
+        "--kw-z-modal",
+        "--kw-z-modal-backdrop"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/CommandPalette/CommandPalette.stories.tsx#Default"
+        },
+        {
+          "name": "Open",
+          "exportName": "Open",
+          "reference": "src/components/CommandPalette/CommandPalette.stories.tsx#Open"
+        }
+      ],
+      "propsReference": "src/components/CommandPalette/CommandPalette.tsx",
+      "storyReference": "src/components/CommandPalette/CommandPalette.stories.tsx",
+      "testReference": "src/components/CommandPalette/CommandPalette.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Modal",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Modal",
+      "status": "stable",
+      "platform": "web",
+      "category": "overlay",
+      "props": [
+        {
+          "name": "trigger",
+          "required": false,
+          "type": "ReactElement",
+          "description": "Optional control that opens the dialog."
+        },
+        {
+          "name": "open",
+          "required": false,
+          "type": "boolean",
+          "description": "Controlled open state."
+        },
+        {
+          "name": "defaultOpen",
+          "required": false,
+          "type": "boolean",
+          "description": "Initial open state for uncontrolled use."
+        },
+        {
+          "name": "onOpenChange",
+          "required": false,
+          "type": "(open: boolean) => void",
+          "description": "Reports controlled and uncontrolled state changes."
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "'sm' | 'md' | 'lg'",
+          "description": "Dialog width preset."
+        },
+        {
+          "name": "closeOnOutsideClick",
+          "required": false,
+          "type": "boolean",
+          "description": "Allows pointer interaction outside the surface to close it."
+        },
+        {
+          "name": "closeLabel",
+          "required": false,
+          "type": "string",
+          "description": "Accessible name for the close control."
+        },
+        {
+          "name": "ariaLabel",
+          "required": false,
+          "type": "string",
+          "description": "Fallback accessible name when no ModalHeader title is rendered."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides global motion without bypassing reduced-motion."
+        },
+        {
+          "name": "children",
+          "required": true,
+          "type": "ReactNode",
+          "description": ""
+        },
+        {
+          "name": "className",
+          "required": false,
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "CSSProperties",
+          "description": ""
+        }
+      ],
+      "states": [
+        "Default",
+        "Large",
+        "ReducedMotion"
+      ],
+      "tokens": [
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-dialog-motion-duration",
+        "--kw-dialog-motion-easing",
+        "--kw-modal-width-lg",
+        "--kw-modal-width-md",
+        "--kw-modal-width-sm",
+        "--kw-radius-lg",
+        "--kw-shadow-overlay",
+        "--kw-space-16",
+        "--kw-space-20",
+        "--kw-space-24",
+        "--kw-space-4",
+        "--kw-space-48",
+        "--kw-space-8",
+        "--kw-surface-default",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-type-body-line",
+        "--kw-type-body-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size",
+        "--kw-z-modal"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/Modal/Modal.stories.tsx#Default"
+        },
+        {
+          "name": "Large",
+          "exportName": "Large",
+          "reference": "src/components/Modal/Modal.stories.tsx#Large"
+        },
+        {
+          "name": "ReducedMotion",
+          "exportName": "ReducedMotion",
+          "reference": "src/components/Modal/Modal.stories.tsx#ReducedMotion"
+        }
+      ],
+      "propsReference": "src/components/Modal/Modal.tsx",
+      "storyReference": "src/components/Modal/Modal.stories.tsx",
+      "testReference": "src/components/Modal/Modal.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Drawer",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Drawer",
+      "status": "stable",
+      "platform": "web",
+      "category": "overlay",
+      "props": [
+        {
+          "name": "trigger",
+          "required": false,
+          "type": "ReactElement",
+          "description": "Optional control that opens the drawer."
+        },
+        {
+          "name": "open",
+          "required": false,
+          "type": "boolean",
+          "description": "Controlled open state."
+        },
+        {
+          "name": "defaultOpen",
+          "required": false,
+          "type": "boolean",
+          "description": "Initial open state for uncontrolled use."
+        },
+        {
+          "name": "onOpenChange",
+          "required": false,
+          "type": "(open: boolean) => void",
+          "description": "Reports controlled and uncontrolled state changes."
+        },
+        {
+          "name": "side",
+          "required": false,
+          "type": "DrawerSide",
+          "description": "Viewport edge from which the surface enters."
+        },
+        {
+          "name": "floating",
+          "required": false,
+          "type": "boolean",
+          "description": "Insets and rounds the surface instead of attaching it to the viewport edge."
+        },
+        {
+          "name": "closeOnOutsideClick",
+          "required": false,
+          "type": "boolean",
+          "description": "Allows pointer interaction outside the surface to close it."
+        },
+        {
+          "name": "closeLabel",
+          "required": false,
+          "type": "string",
+          "description": "Accessible name for the close control."
+        },
+        {
+          "name": "ariaLabel",
+          "required": false,
+          "type": "string",
+          "description": "Fallback accessible name when no DrawerHeader title is rendered."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides global motion without bypassing reduced-motion."
+        },
+        {
+          "name": "children",
+          "required": true,
+          "type": "ReactNode",
+          "description": ""
+        },
+        {
+          "name": "className",
+          "required": false,
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "CSSProperties",
+          "description": ""
+        }
+      ],
+      "states": [
+        "Right",
+        "Left",
+        "Top",
+        "BottomFloating"
+      ],
+      "tokens": [
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-dialog-motion-duration",
+        "--kw-dialog-motion-easing",
+        "--kw-drawer-size-horizontal",
+        "--kw-drawer-size-vertical",
+        "--kw-radius-lg",
+        "--kw-shadow-overlay",
+        "--kw-space-16",
+        "--kw-space-20",
+        "--kw-space-24",
+        "--kw-space-4",
+        "--kw-space-48",
+        "--kw-space-8",
+        "--kw-surface-default",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-type-body-line",
+        "--kw-type-body-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size",
+        "--kw-z-modal"
+      ],
+      "stories": [
+        {
+          "name": "Right",
+          "exportName": "Right",
+          "reference": "src/components/Drawer/Drawer.stories.tsx#Right"
+        },
+        {
+          "name": "Left",
+          "exportName": "Left",
+          "reference": "src/components/Drawer/Drawer.stories.tsx#Left"
+        },
+        {
+          "name": "Top",
+          "exportName": "Top",
+          "reference": "src/components/Drawer/Drawer.stories.tsx#Top"
+        },
+        {
+          "name": "BottomFloating",
+          "exportName": "BottomFloating",
+          "reference": "src/components/Drawer/Drawer.stories.tsx#BottomFloating"
+        }
+      ],
+      "propsReference": "src/components/Drawer/Drawer.tsx",
+      "storyReference": "src/components/Drawer/Drawer.stories.tsx",
+      "testReference": "src/components/Drawer/Drawer.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "DataTable",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web/data",
+      "exportName": "DataTable",
+      "status": "stable",
+      "platform": "web",
+      "category": "data",
+      "props": [
+        {
+          "name": "columns",
+          "required": true,
+          "type": "readonly DataTableColumn<Row>[]",
+          "description": "Column definitions shared across header and row rendering."
+        },
+        {
+          "name": "rows",
+          "required": true,
+          "type": "readonly Row[]",
+          "description": "Product-owned row data."
+        },
+        {
+          "name": "getRowId",
+          "required": true,
+          "type": "(row: Row) => string",
+          "description": "Returns a stable identifier for each row."
+        },
+        {
+          "name": "caption",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Accessible table caption."
+        },
+        {
+          "name": "captionVisibility",
+          "required": false,
+          "type": "'visible' | 'sr-only'",
+          "description": "Controls whether the caption is visually displayed."
+        },
+        {
+          "name": "labels",
+          "required": true,
+          "type": "DataTableLabels",
+          "description": "Localized interaction labels."
+        },
+        {
+          "name": "sort",
+          "required": false,
+          "type": "DataTableSort | undefined",
+          "description": "Controlled sort state."
+        },
+        {
+          "name": "defaultSort",
+          "required": false,
+          "type": "DataTableSort | undefined",
+          "description": "Initial sort state for uncontrolled use."
+        },
+        {
+          "name": "onSortChange",
+          "required": false,
+          "type": "((sort: DataTableSort) => void) | undefined",
+          "description": "Reports sort changes."
+        },
+        {
+          "name": "selection",
+          "required": false,
+          "type": "DataTableSelection<Row>",
+          "description": "Optional controlled or uncontrolled row-selection contract."
+        },
+        {
+          "name": "pagination",
+          "required": false,
+          "type": "DataTablePagination",
+          "description": "Optional client-side or manually loaded pagination contract."
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean",
+          "description": "Replaces body rows with geometry-preserving skeletons."
+        },
+        {
+          "name": "loadingRows",
+          "required": false,
+          "type": "number",
+          "description": "Number of placeholder rows rendered while loading."
+        },
+        {
+          "name": "emptyState",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Persistent empty content rendered inside the table geometry."
+        },
+        {
+          "name": "className",
+          "required": false,
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "states": [
+        "Default",
+        "VisibleCaption",
+        "Loading",
+        "Empty",
+        "MobileOverflow",
+        "Selectable",
+        "Paginated"
+      ],
+      "tokens": [
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-checkbox-size",
+        "--kw-data-column-compact",
+        "--kw-data-column-default",
+        "--kw-data-column-wide",
+        "--kw-data-selection-column",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-radius-lg",
+        "--kw-radius-sm",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-4",
+        "--kw-space-40",
+        "--kw-space-6",
+        "--kw-space-8",
+        "--kw-surface-default",
+        "--kw-surface-hover",
+        "--kw-surface-subtle",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-label-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/data/DataTable/DataTable.stories.tsx#Default"
+        },
+        {
+          "name": "VisibleCaption",
+          "exportName": "VisibleCaption",
+          "reference": "src/data/DataTable/DataTable.stories.tsx#VisibleCaption"
+        },
+        {
+          "name": "Loading",
+          "exportName": "Loading",
+          "reference": "src/data/DataTable/DataTable.stories.tsx#Loading"
+        },
+        {
+          "name": "Empty",
+          "exportName": "Empty",
+          "reference": "src/data/DataTable/DataTable.stories.tsx#Empty"
+        },
+        {
+          "name": "MobileOverflow",
+          "exportName": "MobileOverflow",
+          "reference": "src/data/DataTable/DataTable.stories.tsx#MobileOverflow"
+        },
+        {
+          "name": "Selectable",
+          "exportName": "Selectable",
+          "reference": "src/data/DataTable/DataTable.stories.tsx#Selectable"
+        },
+        {
+          "name": "Paginated",
+          "exportName": "Paginated",
+          "reference": "src/data/DataTable/DataTable.stories.tsx#Paginated"
+        }
+      ],
+      "propsReference": "src/data/DataTable/DataTable.tsx",
+      "storyReference": "src/data/DataTable/DataTable.stories.tsx",
+      "testReference": "src/data/DataTable/DataTable.test.tsx",
+      "since": "0.2.0"
+    },
+    {
+      "name": "Pagination",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web/data",
+      "exportName": "Pagination",
+      "status": "stable",
+      "platform": "web",
+      "category": "data",
+      "props": [
+        {
+          "name": "page",
+          "required": true,
+          "type": "number",
+          "description": "Current one-based page."
+        },
+        {
+          "name": "pageCount",
+          "required": true,
+          "type": "number",
+          "description": "Total number of pages, with a minimum rendered value of one."
+        },
+        {
+          "name": "onPageChange",
+          "required": true,
+          "type": "(page: number) => void",
+          "description": "Reports a requested one-based page."
+        },
+        {
+          "name": "labels",
+          "required": true,
+          "type": "PaginationLabels",
+          "description": "Localized navigation and status labels."
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean",
+          "description": "Prevents page changes while preserving the current status."
+        }
+      ],
+      "states": [
+        "Default",
+        "Controlled",
+        "LastPage",
+        "SinglePage",
+        "Disabled"
+      ],
+      "tokens": [
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-space-12",
+        "--kw-space-8",
+        "--kw-surface-default",
+        "--kw-text-secondary",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/data/Pagination/Pagination.stories.tsx#Default"
+        },
+        {
+          "name": "Controlled",
+          "exportName": "Controlled",
+          "reference": "src/data/Pagination/Pagination.stories.tsx#Controlled"
+        },
+        {
+          "name": "LastPage",
+          "exportName": "LastPage",
+          "reference": "src/data/Pagination/Pagination.stories.tsx#LastPage"
+        },
+        {
+          "name": "SinglePage",
+          "exportName": "SinglePage",
+          "reference": "src/data/Pagination/Pagination.stories.tsx#SinglePage"
+        },
+        {
+          "name": "Disabled",
+          "exportName": "Disabled",
+          "reference": "src/data/Pagination/Pagination.stories.tsx#Disabled"
+        }
+      ],
+      "propsReference": "src/data/Pagination/Pagination.tsx",
+      "storyReference": "src/data/Pagination/Pagination.stories.tsx",
+      "testReference": "src/data/Pagination/Pagination.test.tsx",
+      "since": "0.2.0"
+    },
+    {
+      "name": "BarChart",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web/data",
+      "exportName": "BarChart",
+      "status": "stable",
+      "platform": "web",
+      "category": "data",
+      "props": [
+        {
+          "name": "title",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Accessible and visible chart title."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional chart context associated with the figure."
+        },
+        {
+          "name": "data",
+          "required": true,
+          "type": "readonly BarChartDatum[]",
+          "description": "Product-owned category values."
+        },
+        {
+          "name": "formatValue",
+          "required": true,
+          "type": "(value: number, datum: BarChartDatum) => string",
+          "description": "Formats a visible value and its accessible text."
+        },
+        {
+          "name": "maxValue",
+          "required": false,
+          "type": "number",
+          "description": "Optional scale ceiling; values never overflow a smaller supplied maximum."
+        },
+        {
+          "name": "orientation",
+          "required": false,
+          "type": "BarChartOrientation",
+          "description": "Direction used to compare categories."
+        },
+        {
+          "name": "emptyState",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Persistent empty content rendered inside the chart geometry."
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean",
+          "description": "Replaces values with geometry-preserving placeholders."
+        },
+        {
+          "name": "loadingLabel",
+          "required": true,
+          "type": "string",
+          "description": "Accessible loading announcement."
+        },
+        {
+          "name": "loadingItems",
+          "required": false,
+          "type": "number",
+          "description": "Number of placeholder categories rendered while loading."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides global motion without bypassing reduced-motion."
+        }
+      ],
+      "states": [
+        "Default",
+        "Vertical",
+        "Loading",
+        "VerticalLoading",
+        "Empty",
+        "LongTurkishContent",
+        "MotionOff"
+      ],
+      "tokens": [
+        "--kw-border-width",
+        "--kw-chart-columns",
+        "--kw-chart-grid",
+        "--kw-chart-label-width",
+        "--kw-chart-motion-duration",
+        "--kw-chart-motion-easing",
+        "--kw-chart-series-primary",
+        "--kw-chart-track-height",
+        "--kw-chart-value",
+        "--kw-chart-vertical-height",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-radius-md",
+        "--kw-radius-sm",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-2",
+        "--kw-space-20",
+        "--kw-space-24",
+        "--kw-space-4",
+        "--kw-space-8",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-type-body-line",
+        "--kw-type-body-size",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/data/BarChart/BarChart.stories.tsx#Default"
+        },
+        {
+          "name": "Vertical",
+          "exportName": "Vertical",
+          "reference": "src/data/BarChart/BarChart.stories.tsx#Vertical"
+        },
+        {
+          "name": "Loading",
+          "exportName": "Loading",
+          "reference": "src/data/BarChart/BarChart.stories.tsx#Loading"
+        },
+        {
+          "name": "VerticalLoading",
+          "exportName": "VerticalLoading",
+          "reference": "src/data/BarChart/BarChart.stories.tsx#VerticalLoading"
+        },
+        {
+          "name": "Empty",
+          "exportName": "Empty",
+          "reference": "src/data/BarChart/BarChart.stories.tsx#Empty"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/data/BarChart/BarChart.stories.tsx#LongTurkishContent"
+        },
+        {
+          "name": "MotionOff",
+          "exportName": "MotionOff",
+          "reference": "src/data/BarChart/BarChart.stories.tsx#MotionOff"
+        }
+      ],
+      "propsReference": "src/data/BarChart/BarChart.tsx",
+      "storyReference": "src/data/BarChart/BarChart.stories.tsx",
+      "testReference": "src/data/BarChart/BarChart.test.tsx",
+      "since": "0.2.0"
+    },
+    {
+      "name": "PieChart",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web/data",
+      "exportName": "PieChart",
+      "status": "stable",
+      "platform": "web",
+      "category": "data",
+      "props": [
+        {
+          "name": "title",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Accessible and visible chart title."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional chart context associated with the figure."
+        },
+        {
+          "name": "data",
+          "required": true,
+          "type": "readonly PieChartDatum[]",
+          "description": "Product-owned category values."
+        },
+        {
+          "name": "formatValue",
+          "required": true,
+          "type": "(value: number, datum: PieChartDatum) => string",
+          "description": "Formats each visible and accessible category value."
+        },
+        {
+          "name": "segmentsLabel",
+          "required": true,
+          "type": "string",
+          "description": "Localized accessible name for the focusable segment group."
+        },
+        {
+          "name": "emptyState",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Persistent empty content rendered instead of an empty geometry."
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean",
+          "description": "Replaces values with geometry-preserving placeholders."
+        },
+        {
+          "name": "loadingLabel",
+          "required": true,
+          "type": "string",
+          "description": "Accessible loading announcement."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides global motion without bypassing reduced-motion."
+        }
+      ],
+      "states": [
+        "Default",
+        "Loading",
+        "Empty",
+        "LongTurkishContent",
+        "MotionOff"
+      ],
+      "tokens": [
+        "--kw-border-width",
+        "--kw-chart-grid",
+        "--kw-chart-motion-duration",
+        "--kw-chart-motion-easing",
+        "--kw-chart-series-primary",
+        "--kw-chart-series-quaternary",
+        "--kw-chart-series-quinary",
+        "--kw-chart-series-secondary",
+        "--kw-chart-series-tertiary",
+        "--kw-focus-ring",
+        "--kw-pie-color",
+        "--kw-radius-full",
+        "--kw-radius-md",
+        "--kw-radius-sm",
+        "--kw-space-10",
+        "--kw-space-12",
+        "--kw-space-2",
+        "--kw-space-20",
+        "--kw-space-24",
+        "--kw-space-4",
+        "--kw-space-8",
+        "--kw-surface-hover",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-type-body-line",
+        "--kw-type-body-size",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/data/PieChart/PieChart.stories.tsx#Default"
+        },
+        {
+          "name": "Loading",
+          "exportName": "Loading",
+          "reference": "src/data/PieChart/PieChart.stories.tsx#Loading"
+        },
+        {
+          "name": "Empty",
+          "exportName": "Empty",
+          "reference": "src/data/PieChart/PieChart.stories.tsx#Empty"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/data/PieChart/PieChart.stories.tsx#LongTurkishContent"
+        },
+        {
+          "name": "MotionOff",
+          "exportName": "MotionOff",
+          "reference": "src/data/PieChart/PieChart.stories.tsx#MotionOff"
+        }
+      ],
+      "propsReference": "src/data/PieChart/PieChart.tsx",
+      "storyReference": "src/data/PieChart/PieChart.stories.tsx",
+      "testReference": "src/data/PieChart/PieChart.test.tsx",
+      "since": "0.2.0"
+    },
+    {
+      "name": "GroupedBarChart",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web/data",
+      "exportName": "GroupedBarChart",
+      "status": "stable",
+      "platform": "web",
+      "category": "data",
+      "props": [
+        {
+          "name": "title",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Accessible and visible chart title."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional chart context associated with the figure."
+        },
+        {
+          "name": "data",
+          "required": true,
+          "type": "readonly GroupedBarChartDatum[]",
+          "description": "Product-owned categories and their series values."
+        },
+        {
+          "name": "series",
+          "required": true,
+          "type": "readonly GroupedBarChartSeries[]",
+          "description": "Ordered series metadata used by the plot and persistent legend."
+        },
+        {
+          "name": "formatValue",
+          "required": true,
+          "type": "( value: number, datum: GroupedBarChartDatum, series: GroupedBarChartSeries, ) => string",
+          "description": "Formats every visible value and its accessible text."
+        },
+        {
+          "name": "plotLabel",
+          "required": true,
+          "type": "string",
+          "description": "Localized accessible name for the horizontally scrollable plot."
+        },
+        {
+          "name": "legendLabel",
+          "required": true,
+          "type": "string",
+          "description": "Localized accessible name for the persistent series legend."
+        },
+        {
+          "name": "maxValue",
+          "required": false,
+          "type": "number",
+          "description": "Optional scale ceiling; values never overflow a smaller supplied maximum."
+        },
+        {
+          "name": "emptyState",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Persistent empty content rendered instead of empty geometry."
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean",
+          "description": "Replaces values with geometry-preserving placeholders."
+        },
+        {
+          "name": "loadingLabel",
+          "required": true,
+          "type": "string",
+          "description": "Accessible loading announcement."
+        },
+        {
+          "name": "loadingItems",
+          "required": false,
+          "type": "number",
+          "description": "Number of placeholder categories rendered while loading."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides global motion without bypassing reduced-motion."
+        }
+      ],
+      "states": [
+        "Default",
+        "Loading",
+        "Empty",
+        "LongTurkishContent",
+        "MotionOff"
+      ],
+      "tokens": [
+        "--kw-border-width",
+        "--kw-chart-grid",
+        "--kw-chart-motion-duration",
+        "--kw-chart-motion-easing",
+        "--kw-chart-series-primary",
+        "--kw-chart-series-quaternary",
+        "--kw-chart-series-quinary",
+        "--kw-chart-series-secondary",
+        "--kw-chart-series-tertiary",
+        "--kw-chart-vertical-height",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-grouped-bar-color",
+        "--kw-grouped-bar-columns",
+        "--kw-grouped-bar-value",
+        "--kw-radius-full",
+        "--kw-radius-md",
+        "--kw-radius-sm",
+        "--kw-radius-xs",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-2",
+        "--kw-space-20",
+        "--kw-space-24",
+        "--kw-space-4",
+        "--kw-space-6",
+        "--kw-space-8",
+        "--kw-surface-default",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-type-body-line",
+        "--kw-type-body-size",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/data/GroupedBarChart/GroupedBarChart.stories.tsx#Default"
+        },
+        {
+          "name": "Loading",
+          "exportName": "Loading",
+          "reference": "src/data/GroupedBarChart/GroupedBarChart.stories.tsx#Loading"
+        },
+        {
+          "name": "Empty",
+          "exportName": "Empty",
+          "reference": "src/data/GroupedBarChart/GroupedBarChart.stories.tsx#Empty"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/data/GroupedBarChart/GroupedBarChart.stories.tsx#LongTurkishContent"
+        },
+        {
+          "name": "MotionOff",
+          "exportName": "MotionOff",
+          "reference": "src/data/GroupedBarChart/GroupedBarChart.stories.tsx#MotionOff"
+        }
+      ],
+      "propsReference": "src/data/GroupedBarChart/GroupedBarChart.tsx",
+      "storyReference": "src/data/GroupedBarChart/GroupedBarChart.stories.tsx",
+      "testReference": "src/data/GroupedBarChart/GroupedBarChart.test.tsx",
+      "since": "0.2.0"
+    },
+    {
+      "name": "StackedBarChart",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web/data",
+      "exportName": "StackedBarChart",
+      "status": "stable",
+      "platform": "web",
+      "category": "data",
+      "props": [
+        {
+          "name": "title",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Accessible and visible chart title."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional chart context associated with the figure."
+        },
+        {
+          "name": "data",
+          "required": true,
+          "type": "readonly StackedBarChartDatum[]",
+          "description": "Product-owned categories and their series values."
+        },
+        {
+          "name": "series",
+          "required": true,
+          "type": "readonly StackedBarChartSeries[]",
+          "description": "Ordered series metadata used by every stack and the persistent legend."
+        },
+        {
+          "name": "formatValue",
+          "required": true,
+          "type": "( value: number, datum: StackedBarChartDatum, series?: StackedBarChartSeries, ) => string",
+          "description": "Formats segment and category totals."
+        },
+        {
+          "name": "formatAxisValue",
+          "required": true,
+          "type": "(value: number) => string",
+          "description": "Formats numeric values displayed on the value axis."
+        },
+        {
+          "name": "plotLabel",
+          "required": true,
+          "type": "string",
+          "description": "Localized accessible name for the scrollable plot."
+        },
+        {
+          "name": "legendLabel",
+          "required": true,
+          "type": "string",
+          "description": "Localized accessible name for the persistent series legend."
+        },
+        {
+          "name": "axisLabel",
+          "required": true,
+          "type": "string",
+          "description": "Localized accessible name for the value axis."
+        },
+        {
+          "name": "orientation",
+          "required": false,
+          "type": "StackedBarChartOrientation",
+          "description": "Direction in which category stacks grow."
+        },
+        {
+          "name": "maxValue",
+          "required": false,
+          "type": "number",
+          "description": "Optional scale ceiling; category totals never overflow a smaller value."
+        },
+        {
+          "name": "axisTickCount",
+          "required": false,
+          "type": "number",
+          "description": "Number of equal intervals drawn on the value axis."
+        },
+        {
+          "name": "emptyState",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Persistent empty content rendered instead of empty geometry."
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean",
+          "description": "Replaces values with geometry-preserving placeholders."
+        },
+        {
+          "name": "loadingLabel",
+          "required": true,
+          "type": "string",
+          "description": "Accessible loading announcement."
+        },
+        {
+          "name": "loadingItems",
+          "required": false,
+          "type": "number",
+          "description": "Number of placeholder categories rendered while loading."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides global motion without bypassing reduced-motion."
+        }
+      ],
+      "states": [
+        "Default",
+        "Horizontal",
+        "FixedAxisCeiling",
+        "Loading",
+        "Empty",
+        "LongTurkishContent",
+        "MotionOff"
+      ],
+      "tokens": [
+        "--kw-border-width",
+        "--kw-chart-grid",
+        "--kw-chart-label-width",
+        "--kw-chart-motion-duration",
+        "--kw-chart-motion-easing",
+        "--kw-chart-series-primary",
+        "--kw-chart-series-quaternary",
+        "--kw-chart-series-quinary",
+        "--kw-chart-series-secondary",
+        "--kw-chart-series-tertiary",
+        "--kw-chart-track-height",
+        "--kw-chart-vertical-height",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-radius-full",
+        "--kw-radius-md",
+        "--kw-radius-sm",
+        "--kw-radius-xs",
+        "--kw-space-12",
+        "--kw-space-2",
+        "--kw-space-20",
+        "--kw-space-24",
+        "--kw-space-4",
+        "--kw-space-6",
+        "--kw-space-8",
+        "--kw-stacked-axis-position",
+        "--kw-stacked-bar-color",
+        "--kw-stacked-bar-columns",
+        "--kw-stacked-bar-value",
+        "--kw-surface-default",
+        "--kw-surface-raised",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-text-tertiary",
+        "--kw-type-body-line",
+        "--kw-type-body-size",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/data/StackedBarChart/StackedBarChart.stories.tsx#Default"
+        },
+        {
+          "name": "Horizontal",
+          "exportName": "Horizontal",
+          "reference": "src/data/StackedBarChart/StackedBarChart.stories.tsx#Horizontal"
+        },
+        {
+          "name": "FixedAxisCeiling",
+          "exportName": "FixedAxisCeiling",
+          "reference": "src/data/StackedBarChart/StackedBarChart.stories.tsx#FixedAxisCeiling"
+        },
+        {
+          "name": "Loading",
+          "exportName": "Loading",
+          "reference": "src/data/StackedBarChart/StackedBarChart.stories.tsx#Loading"
+        },
+        {
+          "name": "Empty",
+          "exportName": "Empty",
+          "reference": "src/data/StackedBarChart/StackedBarChart.stories.tsx#Empty"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/data/StackedBarChart/StackedBarChart.stories.tsx#LongTurkishContent"
+        },
+        {
+          "name": "MotionOff",
+          "exportName": "MotionOff",
+          "reference": "src/data/StackedBarChart/StackedBarChart.stories.tsx#MotionOff"
+        }
+      ],
+      "propsReference": "src/data/StackedBarChart/StackedBarChart.tsx",
+      "storyReference": "src/data/StackedBarChart/StackedBarChart.stories.tsx",
+      "testReference": "src/data/StackedBarChart/StackedBarChart.test.tsx",
+      "since": "0.2.0"
+    },
+    {
+      "name": "ThemeSwitcher",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "ThemeSwitcher",
+      "status": "stable",
+      "platform": "web",
+      "category": "preferences",
+      "props": [
+        {
+          "name": "label",
+          "required": true,
+          "type": "string",
+          "description": "Accessible name for the complete theme preference control."
+        },
+        {
+          "name": "labels",
+          "required": true,
+          "type": "ThemeSwitcherLabels",
+          "description": "Localized visible names for each supported preference."
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "ThemePreference",
+          "description": "Controlled theme preference."
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "ThemePreference",
+          "description": "Initial preference for uncontrolled use."
+        },
+        {
+          "name": "onValueChange",
+          "required": false,
+          "type": "(value: ThemePreference) => void",
+          "description": "Reports preference changes; persistence and provider updates belong to the application."
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "'sm' | 'md'",
+          "description": "Control density."
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean",
+          "description": "Prevents every preference from being changed."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides global motion without bypassing reduced-motion."
+        }
+      ],
+      "states": [
+        "Default",
+        "Compact",
+        "ExpressiveMotion",
+        "Disabled",
+        "LongTurkishLabels",
+        "ProviderAdapter"
+      ],
+      "tokens": [
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-font-sans",
+        "--kw-input-height-md",
+        "--kw-input-height-sm",
+        "--kw-radius-md",
+        "--kw-radius-sm",
+        "--kw-shadow-raised",
+        "--kw-space-12",
+        "--kw-space-4",
+        "--kw-space-8",
+        "--kw-surface-default",
+        "--kw-surface-subtle",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/ThemeSwitcher/ThemeSwitcher.stories.tsx#Default"
+        },
+        {
+          "name": "Compact",
+          "exportName": "Compact",
+          "reference": "src/components/ThemeSwitcher/ThemeSwitcher.stories.tsx#Compact"
+        },
+        {
+          "name": "ExpressiveMotion",
+          "exportName": "ExpressiveMotion",
+          "reference": "src/components/ThemeSwitcher/ThemeSwitcher.stories.tsx#ExpressiveMotion"
+        },
+        {
+          "name": "Disabled",
+          "exportName": "Disabled",
+          "reference": "src/components/ThemeSwitcher/ThemeSwitcher.stories.tsx#Disabled"
+        },
+        {
+          "name": "LongTurkishLabels",
+          "exportName": "LongTurkishLabels",
+          "reference": "src/components/ThemeSwitcher/ThemeSwitcher.stories.tsx#LongTurkishLabels"
+        },
+        {
+          "name": "ProviderAdapter",
+          "exportName": "ProviderAdapter",
+          "reference": "src/components/ThemeSwitcher/ThemeSwitcher.stories.tsx#ProviderAdapter"
+        }
+      ],
+      "propsReference": "src/components/ThemeSwitcher/ThemeSwitcher.tsx",
+      "storyReference": "src/components/ThemeSwitcher/ThemeSwitcher.stories.tsx",
+      "testReference": "src/components/ThemeSwitcher/ThemeSwitcher.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "LanguageSwitcher",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "LanguageSwitcher",
+      "status": "stable",
+      "platform": "web",
+      "category": "preferences",
+      "props": [
+        {
+          "name": "label",
+          "required": true,
+          "type": "string",
+          "description": "Localized field label."
+        },
+        {
+          "name": "options",
+          "required": true,
+          "type": "readonly LanguageOption[]",
+          "description": "Languages supplied by the consuming application's i18n boundary."
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "string",
+          "description": "Controlled language identifier."
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "string",
+          "description": "Initial identifier for uncontrolled use."
+        },
+        {
+          "name": "onValueChange",
+          "required": false,
+          "type": "(value: string) => void",
+          "description": "Reports selection changes without changing dictionaries or routes."
+        },
+        {
+          "name": "labelVisibility",
+          "required": false,
+          "type": "'visible' | 'sr-only'",
+          "description": "Keeps the label accessible while visually hiding it in compact toolbars."
+        },
+        {
+          "name": "controlSize",
+          "required": false,
+          "type": "'sm' | 'md'",
+          "description": "Visual control density without shadowing the native select size attribute."
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean",
+          "description": "Prevents the language preference from being changed."
+        },
+        {
+          "name": "id",
+          "required": false,
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "className",
+          "required": false,
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "CSSProperties",
+          "description": ""
+        }
+      ],
+      "states": [
+        "Default",
+        "CompactToolbar",
+        "Disabled",
+        "LongLanguageNames",
+        "Controlled"
+      ],
+      "tokens": [
+        "--kw-font-sans",
+        "--kw-space-12",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/LanguageSwitcher/LanguageSwitcher.stories.tsx#Default"
+        },
+        {
+          "name": "CompactToolbar",
+          "exportName": "CompactToolbar",
+          "reference": "src/components/LanguageSwitcher/LanguageSwitcher.stories.tsx#CompactToolbar"
+        },
+        {
+          "name": "Disabled",
+          "exportName": "Disabled",
+          "reference": "src/components/LanguageSwitcher/LanguageSwitcher.stories.tsx#Disabled"
+        },
+        {
+          "name": "LongLanguageNames",
+          "exportName": "LongLanguageNames",
+          "reference": "src/components/LanguageSwitcher/LanguageSwitcher.stories.tsx#LongLanguageNames"
+        },
+        {
+          "name": "Controlled",
+          "exportName": "Controlled",
+          "reference": "src/components/LanguageSwitcher/LanguageSwitcher.stories.tsx#Controlled"
+        }
+      ],
+      "propsReference": "src/components/LanguageSwitcher/LanguageSwitcher.tsx",
+      "storyReference": "src/components/LanguageSwitcher/LanguageSwitcher.stories.tsx",
+      "testReference": "src/components/LanguageSwitcher/LanguageSwitcher.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Skeleton",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Skeleton",
+      "status": "stable",
+      "platform": "web",
+      "category": "loading",
+      "props": [
+        {
+          "name": "variant",
+          "required": false,
+          "type": "'text' | 'rectangular' | 'circular'",
+          "description": "Geometry of the placeholder."
+        },
+        {
+          "name": "width",
+          "required": false,
+          "type": "CSSProperties['width']",
+          "description": "Reserved inline size. Prefer matching the final content geometry."
+        },
+        {
+          "name": "height",
+          "required": false,
+          "type": "CSSProperties['height']",
+          "description": "Reserved block size. Prefer matching the final content geometry."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides global motion without bypassing reduced-motion."
+        }
+      ],
+      "states": [
+        "Default",
+        "Text",
+        "Avatar",
+        "MotionOff",
+        "CardGeometry"
+      ],
+      "tokens": [
+        "--kw-radius-full",
+        "--kw-radius-md",
+        "--kw-radius-sm",
+        "--kw-skeleton-base",
+        "--kw-skeleton-highlight",
+        "--kw-space-16"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/Skeleton/Skeleton.stories.tsx#Default"
+        },
+        {
+          "name": "Text",
+          "exportName": "Text",
+          "reference": "src/components/Skeleton/Skeleton.stories.tsx#Text"
+        },
+        {
+          "name": "Avatar",
+          "exportName": "Avatar",
+          "reference": "src/components/Skeleton/Skeleton.stories.tsx#Avatar"
+        },
+        {
+          "name": "MotionOff",
+          "exportName": "MotionOff",
+          "reference": "src/components/Skeleton/Skeleton.stories.tsx#MotionOff"
+        },
+        {
+          "name": "CardGeometry",
+          "exportName": "CardGeometry",
+          "reference": "src/components/Skeleton/Skeleton.stories.tsx#CardGeometry"
+        }
+      ],
+      "propsReference": "src/components/Skeleton/Skeleton.tsx",
+      "storyReference": "src/components/Skeleton/Skeleton.stories.tsx",
+      "testReference": "src/components/Skeleton/Skeleton.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Spinner",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Spinner",
+      "status": "stable",
+      "platform": "web",
+      "category": "loading",
+      "props": [
+        {
+          "name": "label",
+          "required": false,
+          "type": "string",
+          "description": "Accessible loading message. Localized products should provide their own label."
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "'sm' | 'md' | 'lg'",
+          "description": "Visual size of the progress indicator."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides global motion without bypassing reduced-motion."
+        }
+      ],
+      "states": [
+        "Default",
+        "MotionOff",
+        "Sizes"
+      ],
+      "tokens": [
+        "--kw-radius-full",
+        "--kw-spinner-size-lg",
+        "--kw-spinner-size-md",
+        "--kw-spinner-size-sm",
+        "--kw-text-primary"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/Spinner/Spinner.stories.tsx#Default"
+        },
+        {
+          "name": "MotionOff",
+          "exportName": "MotionOff",
+          "reference": "src/components/Spinner/Spinner.stories.tsx#MotionOff"
+        },
+        {
+          "name": "Sizes",
+          "exportName": "Sizes",
+          "reference": "src/components/Spinner/Spinner.stories.tsx#Sizes"
+        }
+      ],
+      "propsReference": "src/components/Spinner/Spinner.tsx",
+      "storyReference": "src/components/Spinner/Spinner.stories.tsx",
+      "testReference": "src/components/Spinner/Spinner.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Progress",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Progress",
+      "status": "stable",
+      "platform": "web",
+      "category": "loading",
+      "props": [
+        {
+          "name": "label",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Visible label associated with the progressbar."
+        },
+        {
+          "name": "value",
+          "required": true,
+          "type": "number",
+          "description": "Current measurable value. Values outside the range are clamped."
+        },
+        {
+          "name": "max",
+          "required": false,
+          "type": "number",
+          "description": "Upper bound for the value. Must be greater than zero."
+        },
+        {
+          "name": "valueText",
+          "required": false,
+          "type": "string",
+          "description": "Human-readable value announced instead of the numeric value."
+        },
+        {
+          "name": "showValue",
+          "required": false,
+          "type": "boolean",
+          "description": "Shows the calculated percentage next to the label."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides global motion without bypassing reduced-motion."
+        }
+      ],
+      "states": [
+        "Default",
+        "WithValueText",
+        "Complete",
+        "MotionOff",
+        "LongTurkishLabel"
+      ],
+      "tokens": [
+        "--kw-action-primary-bg",
+        "--kw-progress-duration",
+        "--kw-progress-easing",
+        "--kw-progress-value",
+        "--kw-radius-full",
+        "--kw-space-16",
+        "--kw-space-8",
+        "--kw-surface-subtle",
+        "--kw-text-secondary",
+        "--kw-type-label-line",
+        "--kw-type-label-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/Progress/Progress.stories.tsx#Default"
+        },
+        {
+          "name": "WithValueText",
+          "exportName": "WithValueText",
+          "reference": "src/components/Progress/Progress.stories.tsx#WithValueText"
+        },
+        {
+          "name": "Complete",
+          "exportName": "Complete",
+          "reference": "src/components/Progress/Progress.stories.tsx#Complete"
+        },
+        {
+          "name": "MotionOff",
+          "exportName": "MotionOff",
+          "reference": "src/components/Progress/Progress.stories.tsx#MotionOff"
+        },
+        {
+          "name": "LongTurkishLabel",
+          "exportName": "LongTurkishLabel",
+          "reference": "src/components/Progress/Progress.stories.tsx#LongTurkishLabel"
+        }
+      ],
+      "propsReference": "src/components/Progress/Progress.tsx",
+      "storyReference": "src/components/Progress/Progress.stories.tsx",
+      "testReference": "src/components/Progress/Progress.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Alert",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Alert",
+      "status": "stable",
+      "platform": "web",
+      "category": "feedback",
+      "props": [
+        {
+          "name": "title",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Short summary of the feedback."
+        },
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Supporting explanation or recovery guidance."
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "'neutral' | 'info' | 'success' | 'warning' | 'danger'",
+          "description": "Semantic urgency and token treatment."
+        },
+        {
+          "name": "icon",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional decorative icon from the shared icon package."
+        },
+        {
+          "name": "action",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional contextual action, commonly a Button or link."
+        }
+      ],
+      "states": [
+        "Default",
+        "Info",
+        "Success",
+        "Warning",
+        "Danger",
+        "LongTurkishContent"
+      ],
+      "tokens": [
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-radius-md",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-4",
+        "--kw-status-error",
+        "--kw-status-error-border",
+        "--kw-status-error-surface",
+        "--kw-status-info",
+        "--kw-status-info-border",
+        "--kw-status-info-surface",
+        "--kw-status-success",
+        "--kw-status-success-border",
+        "--kw-status-success-surface",
+        "--kw-status-warning",
+        "--kw-status-warning-border",
+        "--kw-status-warning-surface",
+        "--kw-surface-subtle",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/Alert/Alert.stories.tsx#Default"
+        },
+        {
+          "name": "Info",
+          "exportName": "Info",
+          "reference": "src/components/Alert/Alert.stories.tsx#Info"
+        },
+        {
+          "name": "Success",
+          "exportName": "Success",
+          "reference": "src/components/Alert/Alert.stories.tsx#Success"
+        },
+        {
+          "name": "Warning",
+          "exportName": "Warning",
+          "reference": "src/components/Alert/Alert.stories.tsx#Warning"
+        },
+        {
+          "name": "Danger",
+          "exportName": "Danger",
+          "reference": "src/components/Alert/Alert.stories.tsx#Danger"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/components/Alert/Alert.stories.tsx#LongTurkishContent"
+        }
+      ],
+      "propsReference": "src/components/Alert/Alert.tsx",
+      "storyReference": "src/components/Alert/Alert.stories.tsx",
+      "testReference": "src/components/Alert/Alert.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "EmptyState",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "EmptyState",
+      "status": "stable",
+      "platform": "web",
+      "category": "feedback",
+      "props": [
+        {
+          "name": "title",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Clear description of the empty condition."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional explanation and suggested next step."
+        },
+        {
+          "name": "icon",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional decorative icon from the shared icon package."
+        },
+        {
+          "name": "action",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Primary action supplied by the product."
+        },
+        {
+          "name": "secondaryAction",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Less prominent secondary action supplied by the product."
+        }
+      ],
+      "states": [
+        "Default",
+        "SearchResults",
+        "LongTurkishContent"
+      ],
+      "tokens": [],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/EmptyState/EmptyState.stories.tsx#Default"
+        },
+        {
+          "name": "SearchResults",
+          "exportName": "SearchResults",
+          "reference": "src/components/EmptyState/EmptyState.stories.tsx#SearchResults"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/components/EmptyState/EmptyState.stories.tsx#LongTurkishContent"
+        }
+      ],
+      "propsReference": "src/components/EmptyState/EmptyState.tsx",
+      "storyReference": "src/components/EmptyState/EmptyState.stories.tsx",
+      "testReference": "src/components/EmptyState/EmptyState.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "ErrorState",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "ErrorState",
+      "status": "stable",
+      "platform": "web",
+      "category": "feedback",
+      "props": [
+        {
+          "name": "title",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Clear summary of the failure."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Recovery guidance or a safe diagnostic explanation."
+        },
+        {
+          "name": "icon",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional decorative icon from the shared icon package."
+        },
+        {
+          "name": "action",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Recovery action supplied by the product, commonly Retry."
+        },
+        {
+          "name": "secondaryAction",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional secondary support or navigation action."
+        }
+      ],
+      "states": [
+        "Default",
+        "WithoutAction",
+        "LongTurkishContent"
+      ],
+      "tokens": [
+        "--kw-status-error",
+        "--kw-status-error-surface"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/ErrorState/ErrorState.stories.tsx#Default"
+        },
+        {
+          "name": "WithoutAction",
+          "exportName": "WithoutAction",
+          "reference": "src/components/ErrorState/ErrorState.stories.tsx#WithoutAction"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/components/ErrorState/ErrorState.stories.tsx#LongTurkishContent"
+        }
+      ],
+      "propsReference": "src/components/ErrorState/ErrorState.tsx",
+      "storyReference": "src/components/ErrorState/ErrorState.stories.tsx",
+      "testReference": "src/components/ErrorState/ErrorState.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Toast",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "ToastProvider",
+      "status": "stable",
+      "platform": "web",
+      "category": "feedback",
+      "props": [
+        {
+          "name": "duration",
+          "required": false,
+          "type": "number",
+          "description": "Default visibility duration in milliseconds."
+        },
+        {
+          "name": "maxVisible",
+          "required": false,
+          "type": "number",
+          "description": "Maximum number of simultaneous notifications before queueing."
+        },
+        {
+          "name": "label",
+          "required": false,
+          "type": "string",
+          "description": "Screen reader label for the notification viewport."
+        },
+        {
+          "name": "dismissLabel",
+          "required": false,
+          "type": "string",
+          "description": "Accessible label for each dismiss control."
+        }
+      ],
+      "states": [
+        "Default",
+        "SingleVisibleQueue"
+      ],
+      "tokens": [
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-font-sans",
+        "--kw-radius-lg",
+        "--kw-radius-sm",
+        "--kw-shadow-overlay",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-2",
+        "--kw-space-20",
+        "--kw-space-4",
+        "--kw-space-8",
+        "--kw-status-error",
+        "--kw-status-info",
+        "--kw-status-success",
+        "--kw-status-warning",
+        "--kw-surface-default",
+        "--kw-surface-hover",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-text-tertiary",
+        "--kw-toast-width",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size",
+        "--kw-z-toast"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/components/Toast/Toast.stories.tsx#Default"
+        },
+        {
+          "name": "SingleVisibleQueue",
+          "exportName": "SingleVisibleQueue",
+          "reference": "src/components/Toast/Toast.stories.tsx#SingleVisibleQueue"
+        }
+      ],
+      "propsReference": "src/components/Toast/Toast.tsx",
+      "storyReference": "src/components/Toast/Toast.stories.tsx",
+      "testReference": "src/components/Toast/Toast.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Stack",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Stack",
+      "status": "stable",
+      "platform": "web",
+      "category": "layout",
+      "props": [
+        {
+          "name": "gap",
+          "required": false,
+          "type": "SpaceToken",
+          "description": "Vertical space between children, mapped to the shared spacing scale."
+        },
+        {
+          "name": "align",
+          "required": false,
+          "type": "'start' | 'center' | 'end' | 'stretch'",
+          "description": "Cross-axis alignment."
+        }
+      ],
+      "states": [
+        "Default",
+        "Spacious"
+      ],
+      "tokens": [
+        "--kw-border-width",
+        "--kw-chart-grid",
+        "--kw-chart-label-width",
+        "--kw-chart-motion-duration",
+        "--kw-chart-motion-easing",
+        "--kw-chart-track-height",
+        "--kw-chart-vertical-height",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-radius-full",
+        "--kw-radius-md",
+        "--kw-radius-sm",
+        "--kw-radius-xs",
+        "--kw-space-0",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-2",
+        "--kw-space-20",
+        "--kw-space-24",
+        "--kw-space-32",
+        "--kw-space-4",
+        "--kw-space-40",
+        "--kw-space-48",
+        "--kw-space-6",
+        "--kw-space-64",
+        "--kw-space-8",
+        "--kw-stack-align",
+        "--kw-stack-gap",
+        "--kw-stacked-axis-position",
+        "--kw-stacked-bar-color",
+        "--kw-stacked-bar-columns",
+        "--kw-stacked-bar-value",
+        "--kw-surface-default",
+        "--kw-surface-raised",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-text-tertiary",
+        "--kw-type-body-line",
+        "--kw-type-body-size",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/primitives/Stack/Stack.stories.tsx#Default"
+        },
+        {
+          "name": "Spacious",
+          "exportName": "Spacious",
+          "reference": "src/primitives/Stack/Stack.stories.tsx#Spacious"
+        }
+      ],
+      "propsReference": "src/primitives/Stack/Stack.tsx",
+      "storyReference": "src/primitives/Stack/Stack.stories.tsx",
+      "testReference": "src/primitives/Stack/Stack.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Inline",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Inline",
+      "status": "stable",
+      "platform": "web",
+      "category": "layout",
+      "props": [
+        {
+          "name": "gap",
+          "required": false,
+          "type": "SpaceToken",
+          "description": "Horizontal and wrapped-row space from the shared spacing scale."
+        },
+        {
+          "name": "align",
+          "required": false,
+          "type": "'start' | 'center' | 'end' | 'stretch' | 'baseline'",
+          "description": "Cross-axis alignment for children."
+        },
+        {
+          "name": "justify",
+          "required": false,
+          "type": "'start' | 'center' | 'end' | 'between'",
+          "description": "Main-axis distribution for children."
+        },
+        {
+          "name": "wrap",
+          "required": false,
+          "type": "boolean",
+          "description": "Allows children to continue on a new row when horizontal space is limited."
+        }
+      ],
+      "states": [
+        "Default",
+        "SpaceBetween",
+        "LongTurkishContent"
+      ],
+      "tokens": [
+        "--kw-inline-align",
+        "--kw-inline-gap",
+        "--kw-inline-justify",
+        "--kw-inline-wrap",
+        "--kw-space-0",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-20",
+        "--kw-space-24",
+        "--kw-space-32",
+        "--kw-space-4",
+        "--kw-space-40",
+        "--kw-space-48",
+        "--kw-space-64",
+        "--kw-space-8"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/primitives/Inline/Inline.stories.tsx#Default"
+        },
+        {
+          "name": "SpaceBetween",
+          "exportName": "SpaceBetween",
+          "reference": "src/primitives/Inline/Inline.stories.tsx#SpaceBetween"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/primitives/Inline/Inline.stories.tsx#LongTurkishContent"
+        }
+      ],
+      "propsReference": "src/primitives/Inline/Inline.tsx",
+      "storyReference": "src/primitives/Inline/Inline.stories.tsx",
+      "testReference": "src/primitives/Inline/Inline.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Grid",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Grid",
+      "status": "stable",
+      "platform": "web",
+      "category": "layout",
+      "props": [
+        {
+          "name": "columns",
+          "required": false,
+          "type": "1 | 2 | 3 | 4 | 'auto'",
+          "description": "Requested desktop columns; auto uses tokenized minimum card width."
+        },
+        {
+          "name": "gap",
+          "required": false,
+          "type": "SpaceToken",
+          "description": "Grid gap from the shared spacing scale."
+        }
+      ],
+      "states": [
+        "ThreeColumns",
+        "AutoResponsive"
+      ],
+      "tokens": [
+        "--kw-grid-columns",
+        "--kw-grid-gap",
+        "--kw-grid-item-min",
+        "--kw-space-0",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-20",
+        "--kw-space-24",
+        "--kw-space-32",
+        "--kw-space-4",
+        "--kw-space-40",
+        "--kw-space-48",
+        "--kw-space-64",
+        "--kw-space-8"
+      ],
+      "stories": [
+        {
+          "name": "ThreeColumns",
+          "exportName": "ThreeColumns",
+          "reference": "src/primitives/Grid/Grid.stories.tsx#ThreeColumns"
+        },
+        {
+          "name": "AutoResponsive",
+          "exportName": "AutoResponsive",
+          "reference": "src/primitives/Grid/Grid.stories.tsx#AutoResponsive"
+        }
+      ],
+      "propsReference": "src/primitives/Grid/Grid.tsx",
+      "storyReference": "src/primitives/Grid/Grid.stories.tsx",
+      "testReference": "src/primitives/Grid/Grid.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Container",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Container",
+      "status": "stable",
+      "platform": "web",
+      "category": "layout",
+      "props": [
+        {
+          "name": "maxWidth",
+          "required": false,
+          "type": "ContainerMaxWidth",
+          "description": "Maximum readable width. Full keeps the container fluid without a width cap."
+        },
+        {
+          "name": "padding",
+          "required": false,
+          "type": "ContainerPadding",
+          "description": "Inline safe-area spacing, constrained to the shared spacing scale."
+        },
+        {
+          "name": "centered",
+          "required": false,
+          "type": "boolean",
+          "description": "Centers a width-constrained container in its available space."
+        }
+      ],
+      "states": [
+        "Default",
+        "Narrow",
+        "Fluid",
+        "LongTurkishContent"
+      ],
+      "tokens": [
+        "--kw-container-content",
+        "--kw-container-max",
+        "--kw-container-narrow",
+        "--kw-container-padding",
+        "--kw-content-max",
+        "--kw-space-0",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-20",
+        "--kw-space-24",
+        "--kw-space-32",
+        "--kw-space-4",
+        "--kw-space-40",
+        "--kw-space-48",
+        "--kw-space-64",
+        "--kw-space-8"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/primitives/Container/Container.stories.tsx#Default"
+        },
+        {
+          "name": "Narrow",
+          "exportName": "Narrow",
+          "reference": "src/primitives/Container/Container.stories.tsx#Narrow"
+        },
+        {
+          "name": "Fluid",
+          "exportName": "Fluid",
+          "reference": "src/primitives/Container/Container.stories.tsx#Fluid"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/primitives/Container/Container.stories.tsx#LongTurkishContent"
+        }
+      ],
+      "propsReference": "src/primitives/Container/Container.tsx",
+      "storyReference": "src/primitives/Container/Container.stories.tsx",
+      "testReference": "src/primitives/Container/Container.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "AppShell",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "AppShell",
+      "status": "stable",
+      "platform": "web",
+      "category": "layout",
+      "props": [
+        {
+          "name": "sidebar",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Application navigation rendered in the shell's sidebar slot."
+        },
+        {
+          "name": "topbar",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional sticky desktop toolbar."
+        },
+        {
+          "name": "mobileHeader",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional sticky compact header shown at mobile widths."
+        },
+        {
+          "name": "sidebarCollapsed",
+          "required": false,
+          "type": "boolean",
+          "description": "Reduces the desktop sidebar to its icon rail width."
+        },
+        {
+          "name": "sidebarOpen",
+          "required": false,
+          "type": "boolean",
+          "description": "Controlled mobile drawer visibility."
+        },
+        {
+          "name": "onSidebarOpenChange",
+          "required": false,
+          "type": "(open: boolean) => void",
+          "description": "Called when Escape or the mobile backdrop requests drawer dismissal."
+        },
+        {
+          "name": "dismissSidebarLabel",
+          "required": true,
+          "type": "string",
+          "description": "Localized accessible name for the mobile drawer backdrop button."
+        },
+        {
+          "name": "contentId",
+          "required": false,
+          "type": "string",
+          "description": "Stable id assigned to the main content landmark."
+        },
+        {
+          "name": "skipLinkLabel",
+          "required": false,
+          "type": "string",
+          "description": "Localized label for an optional skip link targeting the main content."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides shell layout motion without bypassing reduced-motion."
+        }
+      ],
+      "states": [
+        "Default",
+        "Collapsed",
+        "MobileDrawerOpen"
+      ],
+      "tokens": [
+        "--kw-action-primary-bg",
+        "--kw-action-primary-fg",
+        "--kw-app-shell-mobile-header-height",
+        "--kw-app-shell-motion-duration",
+        "--kw-app-shell-motion-easing",
+        "--kw-app-shell-topbar-height",
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-radius-sm",
+        "--kw-sidebar-width",
+        "--kw-sidebar-width-collapsed",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-24",
+        "--kw-space-8",
+        "--kw-surface-canvas",
+        "--kw-surface-default",
+        "--kw-z-app-shell-backdrop",
+        "--kw-z-app-shell-header",
+        "--kw-z-app-shell-sidebar",
+        "--kw-z-toast"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/layouts/AppShell/AppShell.stories.tsx#Default"
+        },
+        {
+          "name": "Collapsed",
+          "exportName": "Collapsed",
+          "reference": "src/layouts/AppShell/AppShell.stories.tsx#Collapsed"
+        },
+        {
+          "name": "MobileDrawerOpen",
+          "exportName": "MobileDrawerOpen",
+          "reference": "src/layouts/AppShell/AppShell.stories.tsx#MobileDrawerOpen"
+        }
+      ],
+      "propsReference": "src/layouts/AppShell/AppShell.tsx",
+      "storyReference": "src/layouts/AppShell/AppShell.stories.tsx",
+      "testReference": "src/layouts/AppShell/AppShell.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "PageHeader",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "PageHeader",
+      "status": "stable",
+      "platform": "web",
+      "category": "layout",
+      "props": [
+        {
+          "name": "title",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Primary page title."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Supporting copy that explains the page purpose."
+        },
+        {
+          "name": "eyebrow",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional short context rendered above the title."
+        },
+        {
+          "name": "breadcrumbs",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Product-owned breadcrumb navigation or location context."
+        },
+        {
+          "name": "actions",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Page-level controls; native buttons and links remain product-owned."
+        },
+        {
+          "name": "metadata",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Secondary facts rendered below the description."
+        },
+        {
+          "name": "headingLevel",
+          "required": false,
+          "type": "1 | 2 | 3",
+          "description": "Semantic heading level; page templates normally use level one."
+        }
+      ],
+      "states": [
+        "Default",
+        "WithBreadcrumbs",
+        "LongTurkishContent"
+      ],
+      "tokens": [
+        "--kw-container-content",
+        "--kw-space-24",
+        "--kw-space-8",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-text-tertiary",
+        "--kw-type-body-line",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-type-h1-line",
+        "--kw-type-h1-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/layouts/PageHeader/PageHeader.stories.tsx#Default"
+        },
+        {
+          "name": "WithBreadcrumbs",
+          "exportName": "WithBreadcrumbs",
+          "reference": "src/layouts/PageHeader/PageHeader.stories.tsx#WithBreadcrumbs"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/layouts/PageHeader/PageHeader.stories.tsx#LongTurkishContent"
+        }
+      ],
+      "propsReference": "src/layouts/PageHeader/PageHeader.tsx",
+      "storyReference": "src/layouts/PageHeader/PageHeader.stories.tsx",
+      "testReference": "src/layouts/PageHeader/PageHeader.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Sidebar",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Sidebar",
+      "status": "stable",
+      "platform": "web",
+      "category": "navigation",
+      "props": [
+        {
+          "name": "label",
+          "required": true,
+          "type": "string",
+          "description": "Accessible name for the primary navigation landmark."
+        },
+        {
+          "name": "header",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional branded or contextual content above navigation items."
+        },
+        {
+          "name": "footer",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional utility content pinned below navigation items."
+        },
+        {
+          "name": "collapsed",
+          "required": false,
+          "type": "boolean",
+          "description": "Standalone collapse state; an enclosing AppShell provides it automatically."
+        }
+      ],
+      "states": [
+        "Expanded",
+        "Collapsed"
+      ],
+      "tokens": [
+        "--kw-app-shell-motion-duration",
+        "--kw-app-shell-motion-easing",
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-input-height-md",
+        "--kw-radius-md",
+        "--kw-space-10",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-2",
+        "--kw-space-20",
+        "--kw-space-8",
+        "--kw-surface-default",
+        "--kw-surface-subtle",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-text-tertiary",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size"
+      ],
+      "stories": [
+        {
+          "name": "Expanded",
+          "exportName": "Expanded",
+          "reference": "src/navigation/Sidebar/Sidebar.stories.tsx#Expanded"
+        },
+        {
+          "name": "Collapsed",
+          "exportName": "Collapsed",
+          "reference": "src/navigation/Sidebar/Sidebar.stories.tsx#Collapsed"
+        }
+      ],
+      "propsReference": "src/navigation/Sidebar/Sidebar.tsx",
+      "storyReference": "src/navigation/Sidebar/Sidebar.stories.tsx",
+      "testReference": "src/navigation/Sidebar/Sidebar.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "Wizard",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "Wizard",
+      "status": "stable",
+      "platform": "web",
+      "category": "pattern",
+      "props": [
+        {
+          "name": "steps",
+          "required": true,
+          "type": "readonly WizardStep[]",
+          "description": "Ordered visible steps. Filter this array in the product for conditional flows."
+        },
+        {
+          "name": "activeStep",
+          "required": true,
+          "type": "string",
+          "description": "Identifier of the currently active step."
+        },
+        {
+          "name": "onStepChange",
+          "required": true,
+          "type": "(stepId: string) => void",
+          "description": "Controlled step-change callback. Product state remains the source of truth."
+        },
+        {
+          "name": "children",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Current step content. Form state should be owned above the Wizard."
+        },
+        {
+          "name": "validateStep",
+          "required": false,
+          "type": "(step: WizardStep) => boolean | Promise<boolean>",
+          "description": "Validates the current step before forward navigation. Return false to stay put."
+        },
+        {
+          "name": "onComplete",
+          "required": true,
+          "type": "() => void | Promise<void>",
+          "description": "Final submission callback. Repeated activation is blocked while it is pending."
+        },
+        {
+          "name": "stepsLabel",
+          "required": true,
+          "type": "string",
+          "description": "Visible label for the step-navigation landmark."
+        },
+        {
+          "name": "progressLabel",
+          "required": true,
+          "type": "(current: number, total: number) => ReactNode",
+          "description": "Localized progress text."
+        },
+        {
+          "name": "completedLabel",
+          "required": true,
+          "type": "string",
+          "description": "Localized accessible text appended to completed steps."
+        },
+        {
+          "name": "optionalLabel",
+          "required": true,
+          "type": "string",
+          "description": "Localized accessible text appended to optional steps."
+        },
+        {
+          "name": "backLabel",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Label for the back action."
+        },
+        {
+          "name": "nextLabel",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Label for the forward action."
+        },
+        {
+          "name": "completeLabel",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Label for the final submit action."
+        },
+        {
+          "name": "allowStepNavigation",
+          "required": false,
+          "type": "boolean",
+          "description": "Allows direct navigation to already visited steps."
+        },
+        {
+          "name": "busy",
+          "required": false,
+          "type": "boolean",
+          "description": "External pending state, for controlled submission lifecycles."
+        },
+        {
+          "name": "error",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Persistent product-supplied validation or submission error."
+        }
+      ],
+      "states": [
+        "Default",
+        "LongTurkishContent",
+        "PersistentError"
+      ],
+      "tokens": [
+        "--kw-action-primary-bg",
+        "--kw-action-primary-fg",
+        "--kw-border-strong",
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-input-height-md",
+        "--kw-radius-full",
+        "--kw-radius-lg",
+        "--kw-radius-md",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-2",
+        "--kw-space-24",
+        "--kw-space-8",
+        "--kw-status-error",
+        "--kw-status-error-border",
+        "--kw-status-error-surface",
+        "--kw-status-success",
+        "--kw-status-success-border",
+        "--kw-status-success-surface",
+        "--kw-surface-default",
+        "--kw-surface-hover",
+        "--kw-surface-subtle",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-text-tertiary",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-type-compact-size",
+        "--kw-type-label-line",
+        "--kw-type-label-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/patterns/Wizard/Wizard.stories.tsx#Default"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/patterns/Wizard/Wizard.stories.tsx#LongTurkishContent"
+        },
+        {
+          "name": "PersistentError",
+          "exportName": "PersistentError",
+          "reference": "src/patterns/Wizard/Wizard.stories.tsx#PersistentError"
+        }
+      ],
+      "propsReference": "src/patterns/Wizard/Wizard.tsx",
+      "storyReference": "src/patterns/Wizard/Wizard.stories.tsx",
+      "testReference": "src/patterns/Wizard/Wizard.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "SuccessPage",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "SuccessPage",
+      "status": "stable",
+      "platform": "web",
+      "category": "pattern",
+      "props": [
+        {
+          "name": "title",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Clear outcome heading."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Product-supplied explanation of what completed."
+        },
+        {
+          "name": "icon",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional icon override. Defaults to the shared Check icon."
+        },
+        {
+          "name": "primaryAction",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Primary next action supplied by the product."
+        },
+        {
+          "name": "secondaryAction",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional less prominent action supplied by the product."
+        },
+        {
+          "name": "details",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional persistent completion details such as an identifier or summary."
+        }
+      ],
+      "states": [
+        "Default",
+        "LongTurkishContent"
+      ],
+      "tokens": [
+        "--kw-status-success",
+        "--kw-status-success-surface"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/patterns/SuccessPage/SuccessPage.stories.tsx#Default"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/patterns/SuccessPage/SuccessPage.stories.tsx#LongTurkishContent"
+        }
+      ],
+      "propsReference": "src/patterns/SuccessPage/SuccessPage.tsx",
+      "storyReference": "src/patterns/SuccessPage/SuccessPage.stories.tsx",
+      "testReference": "src/patterns/SuccessPage/SuccessPage.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "ConfirmationPage",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "ConfirmationPage",
+      "status": "stable",
+      "platform": "web",
+      "category": "pattern",
+      "props": [
+        {
+          "name": "title",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Clear description of the decision being confirmed."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Product-supplied consequences or supporting context."
+        },
+        {
+          "name": "icon",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional icon override. Defaults to the shared CircleHelp icon."
+        },
+        {
+          "name": "primaryAction",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Explicit confirmation action supplied by the product."
+        },
+        {
+          "name": "secondaryAction",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional cancel or back action supplied by the product."
+        },
+        {
+          "name": "details",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Optional persistent review details."
+        }
+      ],
+      "states": [
+        "Default",
+        "WithoutDetails"
+      ],
+      "tokens": [],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/patterns/ConfirmationPage/ConfirmationPage.stories.tsx#Default"
+        },
+        {
+          "name": "WithoutDetails",
+          "exportName": "WithoutDetails",
+          "reference": "src/patterns/ConfirmationPage/ConfirmationPage.stories.tsx#WithoutDetails"
+        }
+      ],
+      "propsReference": "src/patterns/ConfirmationPage/ConfirmationPage.tsx",
+      "storyReference": "src/patterns/ConfirmationPage/ConfirmationPage.stories.tsx",
+      "testReference": "src/patterns/ConfirmationPage/ConfirmationPage.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "UploadProgress",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "UploadProgress",
+      "status": "stable",
+      "platform": "web",
+      "category": "pattern",
+      "props": [
+        {
+          "name": "label",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Visible heading for the upload control."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "ReactNode",
+          "description": "Accepted formats, limits, or other product guidance."
+        },
+        {
+          "name": "dropLabel",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Visible drag-and-drop instruction."
+        },
+        {
+          "name": "selectLabel",
+          "required": true,
+          "type": "ReactNode",
+          "description": "Native file-picker action label."
+        },
+        {
+          "name": "files",
+          "required": true,
+          "type": "readonly UploadFileItem[]",
+          "description": "Controlled file lifecycle items."
+        },
+        {
+          "name": "labels",
+          "required": true,
+          "type": "UploadProgressLabels",
+          "description": "Localized status and action labels."
+        },
+        {
+          "name": "accept",
+          "required": false,
+          "type": "string",
+          "description": "Native accepted file types. Validation remains product-owned."
+        },
+        {
+          "name": "multiple",
+          "required": false,
+          "type": "boolean",
+          "description": "Allows more than one file in the native picker."
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean",
+          "description": "Prevents selection, drop, and row actions."
+        },
+        {
+          "name": "onFilesSelected",
+          "required": true,
+          "type": "(files: readonly File[]) => void",
+          "description": "Receives native picker or dropped files without uploading them."
+        },
+        {
+          "name": "onCancel",
+          "required": false,
+          "type": "(fileId: string) => void",
+          "description": "Cancels an active product upload."
+        },
+        {
+          "name": "onRetry",
+          "required": false,
+          "type": "(fileId: string) => void",
+          "description": "Retries a failed product upload."
+        },
+        {
+          "name": "onRemove",
+          "required": false,
+          "type": "(fileId: string) => void",
+          "description": "Removes a queued, completed, or failed file."
+        }
+      ],
+      "states": [
+        "Default",
+        "Empty",
+        "Disabled",
+        "LongTurkishContent"
+      ],
+      "tokens": [
+        "--kw-border-strong",
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-radius-lg",
+        "--kw-radius-md",
+        "--kw-space-12",
+        "--kw-space-16",
+        "--kw-space-20",
+        "--kw-space-24",
+        "--kw-space-4",
+        "--kw-space-6",
+        "--kw-space-8",
+        "--kw-status-error",
+        "--kw-status-error-border",
+        "--kw-status-success",
+        "--kw-surface-default",
+        "--kw-surface-subtle",
+        "--kw-text-secondary",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size",
+        "--kw-type-h3-line",
+        "--kw-type-h3-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/patterns/UploadProgress/UploadProgress.stories.tsx#Default"
+        },
+        {
+          "name": "Empty",
+          "exportName": "Empty",
+          "reference": "src/patterns/UploadProgress/UploadProgress.stories.tsx#Empty"
+        },
+        {
+          "name": "Disabled",
+          "exportName": "Disabled",
+          "reference": "src/patterns/UploadProgress/UploadProgress.stories.tsx#Disabled"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/patterns/UploadProgress/UploadProgress.stories.tsx#LongTurkishContent"
+        }
+      ],
+      "propsReference": "src/patterns/UploadProgress/UploadProgress.tsx",
+      "storyReference": "src/patterns/UploadProgress/UploadProgress.stories.tsx",
+      "testReference": "src/patterns/UploadProgress/UploadProgress.test.tsx",
+      "since": "0.1.0"
+    },
+    {
+      "name": "ReorderableList",
+      "package": "@imthekaiwen/ui-web",
+      "importPath": "@imthekaiwen/ui-web",
+      "exportName": "ReorderableList",
+      "status": "stable",
+      "platform": "web",
+      "category": "pattern",
+      "props": [
+        {
+          "name": "items",
+          "required": true,
+          "type": "readonly ReorderableListItem[]",
+          "description": "Controlled items in their current visual order."
+        },
+        {
+          "name": "onReorder",
+          "required": true,
+          "type": "(items: readonly ReorderableListItem[]) => void",
+          "description": "Receives the complete next ordered collection."
+        },
+        {
+          "name": "labels",
+          "required": true,
+          "type": "ReorderableListLabels",
+          "description": "Localized control names and live-region announcements."
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean",
+          "description": "Prevents every reorder interaction."
+        },
+        {
+          "name": "motion",
+          "required": false,
+          "type": "MotionPreference",
+          "description": "Overrides global motion without bypassing reduced-motion."
+        },
+        {
+          "name": "id",
+          "required": false,
+          "type": "string",
+          "description": "Optional native list identifier."
+        },
+        {
+          "name": "className",
+          "required": false,
+          "type": "string",
+          "description": "Additional class applied to the ordered list."
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "MotionStyle",
+          "description": "Motion-compatible native list styles."
+        }
+      ],
+      "states": [
+        "Default",
+        "Disabled",
+        "LongTurkishContent",
+        "MotionOff"
+      ],
+      "tokens": [
+        "--kw-border-strong",
+        "--kw-border-subtle",
+        "--kw-border-width",
+        "--kw-focus-offset",
+        "--kw-focus-ring",
+        "--kw-focus-width",
+        "--kw-radius-md",
+        "--kw-radius-sm",
+        "--kw-reorder-disabled-opacity",
+        "--kw-reorder-drag-shadow",
+        "--kw-reorder-handle-size",
+        "--kw-space-12",
+        "--kw-space-2",
+        "--kw-space-8",
+        "--kw-surface-default",
+        "--kw-surface-hover",
+        "--kw-surface-raised",
+        "--kw-text-primary",
+        "--kw-text-secondary",
+        "--kw-text-tertiary",
+        "--kw-type-caption-line",
+        "--kw-type-caption-size",
+        "--kw-type-compact-line",
+        "--kw-type-compact-size"
+      ],
+      "stories": [
+        {
+          "name": "Default",
+          "exportName": "Default",
+          "reference": "src/patterns/ReorderableList/ReorderableList.stories.tsx#Default"
+        },
+        {
+          "name": "Disabled",
+          "exportName": "Disabled",
+          "reference": "src/patterns/ReorderableList/ReorderableList.stories.tsx#Disabled"
+        },
+        {
+          "name": "LongTurkishContent",
+          "exportName": "LongTurkishContent",
+          "reference": "src/patterns/ReorderableList/ReorderableList.stories.tsx#LongTurkishContent"
+        },
+        {
+          "name": "MotionOff",
+          "exportName": "MotionOff",
+          "reference": "src/patterns/ReorderableList/ReorderableList.stories.tsx#MotionOff"
+        }
+      ],
+      "propsReference": "src/patterns/ReorderableList/ReorderableList.tsx",
+      "storyReference": "src/patterns/ReorderableList/ReorderableList.stories.tsx",
+      "testReference": "src/patterns/ReorderableList/ReorderableList.test.tsx",
+      "since": "0.2.0"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "kaiwen-design",
+  "version": "0.1.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImtheKaiwen/kaiwen-design.git"
+  },
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev:studio": "turbo dev --filter=@imthekaiwen/studio",
+    "storybook": "turbo storybook --filter=@imthekaiwen/studio",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test",
+    "test:visual": "turbo test:visual --filter=@imthekaiwen/studio",
+    "docs:check": "turbo docs:check",
+    "changeset": "changeset",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "@changesets/cli": "3.0.3",
+    "@types/node": "24.10.0",
+    "eslint": "9.39.5",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "prettier": "3.6.2",
+    "turbo": "2.11.10",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.0"
+  }
+}
